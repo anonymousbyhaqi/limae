@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ISTN Website - Modern Colorful</title>
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      .gradient-bg {
+        background: linear-gradient(135deg, #0052d4, #4364f7, #6fb1fc);
+      }
+      .gold-text {
+        color: #ffd700;
+      }
+      .hero-bg {
+        background: linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+          ),
+          url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1500&q=80');
+        background-size: cover;
+        background-position: center;
+      }
+    </style>
+  </head>
+  <body class="text-gray-800 bg-gray-50">
+
+    <!-- Header -->
+    <header class="gradient-bg text-white py-4 sticky top-0 z-10 shadow-lg">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-center gap-4 font-semibold">
+        <a href="#" class="hover:text-yellow-300 transition">Beranda</a>
+        <a href="#" class="hover:text-yellow-300 transition">Program Studi</a>
+        <a href="#" class="hover:text-yellow-300 transition">Beasiswa</a>
+        <a href="#" class="hover:text-yellow-300 transition">Karir</a>
+        <a href="#" class="hover:text-yellow-300 transition">Daftar</a>
+        <a href="#" class="hover:text-yellow-300 transition">Tentang Kami</a>
+        <a href="#" class="hover:text-yellow-300 transition">Alumni</a>
+        <a href="#" class="hover:text-yellow-300 transition">Berita</a>
+        <a href="#" class="hover:text-yellow-300 transition">Kolaborasi</a>
+        <a href="#" class="hover:text-yellow-300 transition">Kemahasiswaan</a>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero-bg text-white py-24 text-center">
+      <div class="max-w-3xl mx-auto px-4">
+        <h1 class="text-5xl font-extrabold mb-6">Selamat Datang di <span class="gold-text">ISTN</span></h1>
+        <p class="text-lg mb-8">Institut Sains dan Teknologi Nasional — Kampus Inovasi dan Prestasi</p>
+        <a href="#program" class="bg-yellow-400 text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition">
+          Lihat Program Studi
+        </a>
+      </div>
+    </section>
+
+    <!-- Program Studi -->
+    <section id="program" class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center mb-10 text-blue-700">Program Studi</h2>
+
+        <div class="text-center mb-6 space-x-2">
+          <button class="tab-btn px-5 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700" data-tab="tab1">S1</button>
+          <button class="tab-btn px-5 py-2 bg-gray-200 rounded-lg hover:bg-blue-100" data-tab="tab2">S2</button>
+          <button class="tab-btn px-5 py-2 bg-gray-200 rounded-lg hover:bg-blue-100" data-tab="tab3">Profesi</button>
+          <button class="tab-btn px-5 py-2 bg-gray-200 rounded-lg hover:bg-blue-100" data-tab="tab4">RPL</button>
+        </div>
+
+        <div class="tab-content" id="tab1">
+          <ul class="text-center space-y-2 text-lg font-medium">
+            <li>⚙️ Teknik Mesin</li>
+            <li>💡 Teknik Elektro</li>
+            <li>🧪 Teknik Kimia</li>
+          </ul>
+        </div>
+
+        <div class="tab-content hidden" id="tab2">
+          <ul class="text-center space-y-2 text-lg font-medium">
+            <li>🎓 Magister Teknik Mesin</li>
+            <li>💻 Magister Teknik Elektro</li>
+          </ul>
+        </div>
+
+        <div class="tab-content hidden" id="tab3">
+          <ul class="text-center space-y-2 text-lg font-medium">
+            <li>🏗️ Profesi Insinyur</li>
+          </ul>
+        </div>
+
+        <div class="tab-content hidden" id="tab4">
+          <ul class="text-center space-y-2 text-lg font-medium">
+            <li>💻 Rekayasa Perangkat Lunak</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Berita -->
+    <section class="bg-gradient-to-r from-blue-50 to-blue-100 py-16">
+      <div class="max-w-7xl mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-8 text-blue-700">Berita & Highlight</h2>
+        <div class="relative max-w-xl mx-auto">
+          <div class="overflow-hidden rounded-lg shadow-lg bg-white">
+            <div id="carousel" class="flex transition-transform duration-500 ease-in-out">
+              <div class="w-full flex-shrink-0 p-6">📰 Rektor ISTN Lakukan Kunjungan ke ITB…</div>
+              <div class="w-full flex-shrink-0 p-6">🌐 ISTN Dorong Kedaulatan Digital Kesehatan…</div>
+              <div class="w-full flex-shrink-0 p-6">🇯🇵 ISTN Buka Peluang Magang di Jepang…</div>
+            </div>
+          </div>
+          <button id="prevBtn" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-blue-600 text-white px-3 py-2 rounded-full shadow hover:bg-blue-700">❮</button>
+          <button id="nextBtn" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-blue-600 text-white px-3 py-2 rounded-full shadow hover:bg-blue-700">❯</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mitra -->
+    <section class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-10 text-blue-700">Mitra & Kolaborasi</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-10 items-center justify-center">
+          <img src="https://via.placeholder.com/120x60" alt="Partner 1" class="mx-auto hover:scale-110 transition-transform duration-300" />
+          <img src="https://via.placeholder.com/120x60" alt="Partner 2" class="mx-auto hover:scale-110 transition-transform duration-300" />
+          <img src="https://via.placeholder.com/120x60" alt="Partner 3" class="mx-auto hover:scale-110 transition-transform duration-300" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Alumni -->
+    <section class="bg-gradient-to-br from-blue-600 to-blue-400 py-16 text-white text-center">
+      <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-8">Alumni Berprestasi</h2>
+        <div class="bg-white text-gray-800 rounded-xl shadow-lg p-6 max-w-md mx-auto">
+          <h3 class="text-xl font-bold mb-2">Dr. Ir. Afrianyah Noor</h3>
+          <p class="text-gray-700">Alumni ISTN yang berkontribusi dalam pengembangan teknologi nasional.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-10">
+      <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-lg font-semibold mb-4 text-yellow-400">Tentang Kami</h3>
+          <p>Visi: Menjadi institusi unggul dalam inovasi teknologi.</p>
+          <p>Misi: Mencetak lulusan berintegritas dan kompeten di bidangnya.</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4 text-yellow-400">Alamat</h3>
+          <p>Jl. Raya Puspitek, Serpong, Tangerang Selatan</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4 text-yellow-400">Kontak</h3>
+          <p>Email: info@istn.ac.id</p>
+          <p>Tel: (021) 12345678</p>
+        </div>
+      </div>
+      <div class="text-center text-gray-400 mt-8 text-sm">
+        © 2025 Institut Sains dan Teknologi Nasional — All Rights Reserved
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      // Tabs
+      const tabs = document.querySelectorAll(".tab-btn");
+      const tabContents = document.querySelectorAll(".tab-content");
+
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          tabs.forEach((t) => t.classList.remove("bg-blue-600", "text-white"));
+          tabs.forEach((t) => t.classList.add("bg-gray-200"));
+          tab.classList.add("bg-blue-600", "text-white");
+
+          const target = tab.dataset.tab;
+          tabContents.forEach((content) => {
+            content.classList.add("hidden");
+            if (content.id === target) content.classList.remove("hidden");
+          });
+        });
+      });
+
+      // Carousel
+      const carousel = document.getElementById("carousel");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+      let index = 0;
+
+      function updateCarousel() {
+        carousel.style.transform = `translateX(-${index * 100}%)`;
+      }
+
+      prevBtn.addEventListener("click", () => {
+        index = index === 0 ? 2 : index - 1;
+        updateCarousel();
+      });
+
+      nextBtn.addEventListener("click", () => {
+        index = index === 2 ? 0 : index + 1;
+        updateCarousel();
+      });
+    </script>
+  </body>
+</html>
+
