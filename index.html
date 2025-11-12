@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Institut Sains & Teknologi</title>
+
+  <!-- ✅ TailwindCSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- ✅ Scroll behavior -->
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body class="font-sans text-gray-800">
+
+  <!-- 🌐 Navbar -->
+  <header class="fixed top-0 left-0 w-full bg-white shadow z-50">
+    <div class="container mx-auto flex justify-between items-center px-6 py-3">
+      <h1 class="text-lg font-bold text-indigo-600">Institut Sains & Teknologi</h1>
+      <nav class="space-x-6 hidden md:flex">
+        <a href="#beranda" class="hover:text-indigo-600 transition">Beranda</a>
+        <a href="#program" class="hover:text-indigo-600 transition">Program Studi</a>
+        <a href="#berita" class="hover:text-indigo-600 transition">Berita</a>
+        <a href="#kontak" class="hover:text-indigo-600 transition">Kontak</a>
+      </nav>
+      <a href="#daftar" class="hidden md:inline-block bg-indigo-600 text-white px-4 py-2 rounded-full hover:bg-indigo-700 transition">
+        Daftar
+      </a>
+    </div>
+  </header>
+
+  <!-- 🦋 Hero Section -->
+  <section id="beranda" class="min-h-screen flex items-center justify-center bg-gradient-to-r from-indigo-500 to-blue-600 text-white text-center px-4 pt-24">
+    <div>
+      <h2 class="text-3xl md:text-5xl font-bold mb-4">Institut Sains & Teknologi – Untuk Generasi Pelopor</h2>
+      <p class="text-lg mb-6 max-w-2xl mx-auto">
+        Program studi berorientasi masa depan. Kurikulum adaptif. Kolaborasi industri nyata.
+      </p>
+      <div class="space-x-3">
+        <a href="#daftar" class="bg-white text-indigo-600 font-semibold px-6 py-3 rounded-full shadow hover:bg-indigo-100 transition">Daftar Sekarang</a>
+        <a href="#program" class="border border-white px-6 py-3 rounded-full hover:bg-white hover:text-indigo-600 transition">Lihat Program</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🎓 Program Studi -->
+  <section id="program" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6 text-center">
+      <h3 class="text-3xl font-bold text-gray-800 mb-10">Program Studi Unggulan</h3>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-2xl shadow hover:-translate-y-2 hover:shadow-lg transition p-6">
+          <h4 class="text-xl font-semibold mb-2 text-indigo-600">Teknik Informatika</h4>
+          <p>Mempelajari teknologi komputer, kecerdasan buatan, dan pengembangan aplikasi.</p>
+        </div>
+        <div class="bg-white rounded-2xl shadow hover:-translate-y-2 hover:shadow-lg transition p-6">
+          <h4 class="text-xl font-semibold mb-2 text-indigo-600">Teknik Elektro</h4>
+          <p>Fokus pada sistem tenaga, kontrol otomatis, dan teknologi elektronika modern.</p>
+        </div>
+        <div class="bg-white rounded-2xl shadow hover:-translate-y-2 hover:shadow-lg transition p-6">
+          <h4 class="text-xl font-semibold mb-2 text-indigo-600">Sistem Informasi</h4>
+          <p>Kombinasi ilmu komputer dan bisnis untuk solusi digital yang inovatif.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 📰 Berita -->
+  <section id="berita" class="py-20">
+    <div class="container mx-auto px-6 text-center">
+      <h3 class="text-3xl font-bold text-gray-800 mb-10">Berita Terbaru</h3>
+      <div class="grid md:grid-cols-3 gap-8">
+        <article class="bg-white shadow rounded-2xl overflow-hidden hover:-translate-y-2 hover:shadow-lg transition">
+          <img src="https://source.unsplash.com/400x250/?university,science" alt="Berita 1" class="w-full">
+          <div class="p-5 text-left">
+            <h4 class="font-semibold text-indigo-600 mb-2">Seminar AI dan Teknologi Masa Depan</h4>
+            <p class="text-sm text-gray-600">Mahasiswa berpartisipasi dalam seminar nasional membahas implementasi AI di industri.</p>
+          </div>
+        </article>
+        <article class="bg-white shadow rounded-2xl overflow-hidden hover:-translate-y-2 hover:shadow-lg transition">
+          <img src="https://source.unsplash.com/400x250/?lab,technology" alt="Berita 2" class="w-full">
+          <div class="p-5 text-left">
+            <h4 class="font-semibold text-indigo-600 mb-2">Inovasi Startup Mahasiswa</h4>
+            <p class="text-sm text-gray-600">Tim mahasiswa memenangkan kompetisi startup tingkat nasional dengan ide berkelanjutan.</p>
+          </div>
+        </article>
+        <article class="bg-white shadow rounded-2xl overflow-hidden hover:-translate-y-2 hover:shadow-lg transition">
+          <img src="https://source.unsplash.com/400x250/?coding,students" alt="Berita 3" class="w-full">
+          <div class="p-5 text-left">
+            <h4 class="font-semibold text-indigo-600 mb-2">Pelatihan Pemrograman Modern</h4>
+            <p class="text-sm text-gray-600">Mahasiswa mengikuti pelatihan intensif dalam pengembangan aplikasi berbasis web modern.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 📞 Kontak -->
+  <section id="kontak" class="bg-indigo-600 text-white py-20">
+    <div class="container mx-auto px-6 text-center">
+      <h3 class="text-3xl font-bold mb-6">Hubungi Kami</h3>
+      <p class="mb-8">Jl. Pendidikan No.123, Jakarta — Telepon: (021) 123456</p>
+      <a href="mailto:info@ist.ac.id" class="bg-white text-indigo-600 px-6 py-3 rounded-full font-semibold hover:bg-indigo-100 transition">Kirim Email</a>
+    </div>
+  </section>
+
+  <!-- 🧭 Footer -->
+  <footer class="bg-gray-900 text-gray-300 py-6 text-center">
+    <p>&copy; 2025 Institut Sains & Teknologi. Semua hak dilindungi.</p>
+  </footer>
+
+  <!-- ✨ Script kecil: Navbar transparan berubah warna saat scroll -->
+  <script>
+    const header = document.querySelector("header");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        header.classList.add("bg-white/95", "backdrop-blur", "shadow-md");
+      } else {
+        header.classList.remove("bg-white/95", "backdrop-blur", "shadow-md");
+      }
+    });
+  </script>
+
+</body>
+</html>
