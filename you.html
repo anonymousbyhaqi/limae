@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Website universitas modern, responsif, dan aksesibel berbasis TailwindCSS" />
+  <meta property="og:title" content="Universitas Modern" />
+  <meta property="og:description" content="Kampus Kolaborasi x Industri" />
+  <title>Universitas Modern</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :focus-visible {
+      outline: 2px solid #6366f1;
+      outline-offset: 2px;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    .tab-active {
+      background: linear-gradient(to right, #6366f1, #8b5cf6);
+      color: white;
+    }
+  </style>
+</head>
+<body class="text-gray-800 bg-gray-50">
+  <a href="#main" class="absolute top-0 left-0 bg-white text-indigo-600 px-4 py-2 m-2 rounded focus:translate-y-0 -translate-y-16 focus-visible:translate-y-0 transition-transform">Lewati ke konten utama</a>
+
+  <!-- Top Bar -->
+  <header class="bg-indigo-600 text-white text-sm py-2">
+    <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+      <span>Kampus Kolaborasi x Industri</span>
+      <nav class="space-x-4 hidden sm:block">
+        <a href="#daftar" class="hover:underline">Daftar</a>
+        <a href="#berita" class="hover:underline">Berita</a>
+        <a href="#kontak" class="hover:underline">Kontak</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Navbar -->
+  <nav class="sticky top-0 z-50 bg-white shadow">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+      <h1 class="text-xl font-semibold text-indigo-700">Universitas Modern</h1>
+      <button id="menu-btn" class="sm:hidden text-indigo-700 focus:outline-none" aria-label="Buka menu">
+        ☰
+      </button>
+      <ul id="nav-menu" class="hidden sm:flex space-x-4 text-sm font-medium">
+        <li><a href="#beranda" class="hover:text-indigo-600">Beranda</a></li>
+        <li><a href="#program" class="hover:text-indigo-600">Program Studi</a></li>
+        <li><a href="#beasiswa" class="hover:text-indigo-600">Beasiswa</a></li>
+        <li><a href="#karir" class="hover:text-indigo-600">Karir</a></li>
+        <li><a href="#tentang" class="hover:text-indigo-600">Tentang Kami</a></li>
+        <li><a href="#alumni" class="hover:text-indigo-600">Alumni</a></li>
+        <li><a href="#kolaborasi" class="hover:text-indigo-600">Kolaborasi</a></li>
+        <li><a href="#kalender" class="hover:text-indigo-600">Kalender</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main">
+    <!-- Hero Section -->
+    <section id="beranda" class="relative bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-24">
+      <div class="max-w-7xl mx-auto px-4 text-center">
+        <h2 class="text-4xl font-bold mb-4">Kampus Kolaborasi Masa Depan</h2>
+        <p class="mb-8 text-lg">Mewujudkan generasi unggul dan berdaya saing global melalui sains dan teknologi.</p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a href="#daftar" class="bg-white text-indigo-700 font-semibold px-6 py-3 rounded-2xl hover:bg-indigo-100">Daftar Sekarang</a>
+          <a href="#program" class="border border-white px-6 py-3 rounded-2xl hover:bg-white hover:text-indigo-700">Lihat Program</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Program Studi -->
+    <section id="program" class="py-20">
+      <div class="max-w-7xl mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-8">Program Studi</h2>
+        <div class="flex flex-wrap justify-center gap-3 mb-8">
+          <button class="tab-btn tab-active px-4 py-2 rounded-2xl" data-tab="s1">S1</button>
+          <button class="tab-btn px-4 py-2 rounded-2xl" data-tab="s2">S2</button>
+          <button class="tab-btn px-4 py-2 rounded-2xl" data-tab="profesi">Profesi</button>
+          <button class="tab-btn px-4 py-2 rounded-2xl" data-tab="rpl">RPL</button>
+        </div>
+        <div id="tab-content" class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div class="p-6 bg-white rounded-2xl shadow">Teknik Informatika</div>
+          <div class="p-6 bg-white rounded-2xl shadow">Teknik Sipil</div>
+          <div class="p-6 bg-white rounded-2xl shadow">Manajemen</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Berita -->
+    <section id="berita" class="py-20 bg-gray-100">
+      <div class="max-w-7xl mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-8">Berita & Sorotan</h2>
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <article class="bg-white rounded-2xl shadow p-4 text-left">
+            <img src="/assets/placeholder-1.jpg" alt="Rektor ISTN Lakukan Kunjungan ke ITB" loading="lazy" class="rounded-xl mb-4 w-full h-40 object-cover" />
+            <h3 class="font-semibold mb-2">Rektor ISTN Lakukan Kunjungan ke ITB</h3>
+            <p class="text-sm text-gray-600">Menjalin kerja sama untuk inovasi riset kampus.</p>
+          </article>
+          <article class="bg-white rounded-2xl shadow p-4 text-left">
+            <img src="/assets/placeholder-2.jpg" alt="ISTN Dorong Kedaulatan Digital Kesehatan" loading="lazy" class="rounded-xl mb-4 w-full h-40 object-cover" />
+            <h3 class="font-semibold mb-2">ISTN Dorong Kedaulatan Digital Kesehatan</h3>
+            <p class="text-sm text-gray-600">Kolaborasi riset teknologi kesehatan digital.</p>
+          </article>
+          <article class="bg-white rounded-2xl shadow p-4 text-left">
+            <img src="/assets/placeholder-3.jpg" alt="ISTN Buka Peluang Magang di Jepang" loading="lazy" class="rounded-xl mb-4 w-full h-40 object-cover" />
+            <h3 class="font-semibold mb-2">ISTN Buka Peluang Magang di Jepang</h3>
+            <p class="text-sm text-gray-600">Meningkatkan kompetensi global mahasiswa.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kolaborasi -->
+    <section id="kolaborasi" class="py-20">
+      <div class="max-w-7xl mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-8">ISTN x Industri</h2>
+        <p class="mb-12 text-gray-600">Kemitraan strategis dengan berbagai perusahaan teknologi dan lembaga riset.</p>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
+          <div class="bg-white p-6 rounded-2xl shadow"><img src="/assets/placeholder-logo1.svg" alt="Logo Partner 1" class="mx-auto h-12" /></div>
+          <div class="bg-white p-6 rounded-2xl shadow"><img src="/assets/placeholder-logo2.svg" alt="Logo Partner 2" class="mx-auto h-12" /></div>
+          <div class="bg-white p-6 rounded-2xl shadow"><img src="/assets/placeholder-logo3.svg" alt="Logo Partner 3" class="mx-auto h-12" /></div>
+          <div class="bg-white p-6 rounded-2xl shadow"><img src="/assets/placeholder-logo4.svg" alt="Logo Partner 4" class="mx-auto h-12" /></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Alumni -->
+    <section id="alumni" class="py-20 bg-gray-100">
+      <div class="max-w-7xl mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-8">Kisah Alumni</h2>
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div class="bg-white p-6 rounded-2xl shadow">
+            <img src="/assets/placeholder-4.jpg" alt="Dr. Ir. Afrianyah Noor" class="rounded-full w-24 h-24 mx-auto mb-4 object-cover" />
+            <h3 class="font-semibold">Dr. Ir. Afrianyah Noor</h3>
+            <p class="text-sm text-gray-600">Teknik Industri, Konsultan Inovasi Nasional</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tentang Kami -->
+    <section id="tentang" class="py-20">
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-8">Tentang Kami</h2>
+        <p class="text-gray-600 mb-6">
+          Universitas Modern berkomitmen pada pendidikan berbasis riset, teknologi, dan kolaborasi industri.
+          Kami menyiapkan lulusan yang adaptif terhadap tantangan global dan berjiwa inovatif.
+        </p>
+        <p class="text-gray-600">Alamat: Jl. Kampus Merdeka No. 10, Jakarta Selatan</p>
+      </div>
+    </section>
+
+    <!-- CTA Kalender -->
+    <section id="kalender" class="py-20 bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-center">
+      <h2 class="text-3xl font-bold mb-4">Kalender Akademik</h2>
+      <p class="mb-8 text-lg">Lihat jadwal kegiatan akademik dan penting kampus.</p>
+      <a href="#kalender" class="bg-white text-indigo-700 px-6 py-3 rounded-2xl font-semibold hover:bg-indigo-100">Lihat Kalender</a>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 py-12">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <p>&copy; 2025 Universitas Modern. Semua hak cipta dilindungi.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Toggle Menu
+    document.getElementById('menu-btn').addEventListener('click', () => {
+      document.getElementById('nav-menu').classList.toggle('hidden');
+    });
+
+    // Tab System
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContent = document.getElementById('tab-content');
+
+    const data = {
+      s1: ['Teknik Informatika', 'Teknik Sipil', 'Manajemen'],
+      s2: ['Magister Teknik Elektro', 'Magister Manajemen'],
+      profesi: ['Profesi Insinyur'],
+      rpl: ['Rekayasa Perangkat Lunak Industri', 'Manajemen Teknologi'],
+    };
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabButtons.forEach(b => b.classList.remove('tab-active'));
+        btn.classList.add('tab-active');
+        const key = btn.getAttribute('data-tab');
+        tabContent.innerHTML = data[key].map(
+          p => `<div class='p-6 bg-white rounded-2xl shadow'>${p}</div>`
+        ).join('');
+      });
+    });
+  </script>
+</body>
+</html>
