@@ -1,0 +1,1590 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Institut Sains dan Teknologi Nasional - ISTN</title>
+    <meta name="description" content="ISTN adalah institusi pendidikan tinggi yang berfokus pada pengembangan sains dan teknologi untuk kemajuan bangsa.">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Institut Sains dan Teknologi Nasional - ISTN">
+    <meta property="og:description" content="Membangun Masa Depan Melalui Inovasi Sains dan Teknologi">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://istn.ac.id">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #3B82F6;
+            --secondary-color: #8B5CF6;
+            --text-dark: #111827;
+            --text-light: #6B7280;
+            --bg-light: #F9FAFB;
+            --bg-gray: #F3F4F6;
+            --white: #FFFFFF;
+            --border-color: #E5E7EB;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        @media (min-width: 640px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 2rem;
+            }
+        }
+        
+        /* Skip to Content */
+        .skip-to-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.5rem;
+            transform: translateY(-100%);
+            transition: transform 0.3s;
+            z-index: 50;
+        }
+        
+        .skip-to-content:focus {
+            transform: translateY(0);
+        }
+        
+        /* Top Bar */
+        .top-bar {
+            background: #111827;
+            color: white;
+            padding: 0.5rem 0;
+            font-size: 0.875rem;
+        }
+        
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .top-bar-links {
+            display: none;
+        }
+        
+        @media (min-width: 768px) {
+            .top-bar-links {
+                display: flex;
+                gap: 1rem;
+            }
+        }
+        
+        .top-bar a {
+            color: #9CA3AF;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .top-bar a:hover {
+            color: #60A5FA;
+        }
+        
+        /* Navigation */
+        header {
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            transition: box-shadow 0.3s;
+        }
+        
+        header.scrolled {
+            box-shadow: var(--shadow-md);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 0.5rem;
+            margin-right: 0.75rem;
+        }
+        
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: var(--text-dark);
+        }
+        
+        .nav-menu {
+            display: none;
+            gap: 0.25rem;
+        }
+        
+        @media (min-width: 1024px) {
+            .nav-menu {
+                display: flex;
+            }
+        }
+        
+        .nav-menu a {
+            padding: 0.5rem 0.75rem;
+            color: var(--text-dark);
+            text-decoration: none;
+            border-radius: 0.375rem;
+            transition: all 0.3s;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--primary-color);
+            background: #EFF6FF;
+        }
+        
+        .mobile-menu-btn {
+            padding: 0.5rem;
+            border: none;
+            background: none;
+            color: var(--text-dark);
+            border-radius: 0.375rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .mobile-menu-btn:hover {
+            background: var(--bg-gray);
+        }
+        
+        @media (min-width: 1024px) {
+            .mobile-menu-btn {
+                display: none;
+            }
+        }
+        
+        .mobile-menu {
+            display: none;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        .mobile-menu a {
+            display: block;
+            padding: 0.5rem 0.75rem;
+            color: var(--text-dark);
+            text-decoration: none;
+            border-radius: 0.375rem;
+            transition: all 0.3s;
+        }
+        
+        .mobile-menu a:hover {
+            color: var(--primary-color);
+            background: #EFF6FF;
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 6rem 0;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 48rem;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        @media (min-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .hero p {
+                font-size: 1.5rem;
+            }
+        }
+        
+        .btn-primary {
+            display: inline-block;
+            background: white;
+            color: var(--primary-color);
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background: #F3F4F6;
+        }
+        
+        /* Section Styles */
+        .section {
+            padding: 4rem 0;
+        }
+        
+        @media (min-width: 768px) {
+            .section {
+                padding: 6rem 0;
+            }
+        }
+        
+        .section-gray {
+            background: var(--bg-gray);
+        }
+        
+        .section-heading {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-heading h2 {
+            font-size: 1.875rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            .section-heading h2 {
+                font-size: 2.25rem;
+            }
+        }
+        
+        .section-heading p {
+            color: var(--text-light);
+            max-width: 48rem;
+            margin: 0 auto;
+        }
+        
+        /* Tabs */
+        .tabs {
+            width: 100%;
+        }
+        
+        .tab-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+        }
+        
+        .tab-button {
+            padding: 0.5rem 1rem;
+            background: none;
+            border: none;
+            border-bottom: 2px solid transparent;
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        @media (min-width: 768px) {
+            .tab-button {
+                font-size: 1rem;
+            }
+        }
+        
+        .tab-button.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+        
+        .tab-button:hover {
+            color: var(--text-dark);
+            border-bottom-color: var(--border-color);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: 0.75rem;
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        
+        .card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-0.25rem);
+        }
+        
+        .card-image {
+            width: 100%;
+            height: 12rem;
+            background: var(--bg-gray);
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+        }
+        
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .card p {
+            color: var(--text-light);
+        }
+        
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            gap: 1.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .grid-2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        .grid-3 {
+            display: grid;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .grid-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .grid-4 {
+            display: grid;
+            gap: 1.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .grid-4 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .grid-4 {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        /* Partners */
+        .partner-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            align-items: center;
+            justify-items: center;
+        }
+        
+        @media (min-width: 768px) {
+            .partner-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        .partner-item {
+            background: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: var(--shadow-sm);
+            width: 100%;
+            height: 6rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .partner-placeholder {
+            text-align: center;
+            color: var(--text-light);
+        }
+        
+        .partner-icon {
+            width: 3rem;
+            height: 3rem;
+            background: var(--bg-gray);
+            border-radius: 0.25rem;
+            margin: 0 auto 0.5rem;
+        }
+        
+        .partner-name {
+            font-size: 0.75rem;
+        }
+        
+        /* Social Media */
+        .social-grid {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+        
+        .social-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-light);
+            transition: color 0.3s;
+        }
+        
+        .social-item:hover {
+            color: var(--primary-color);
+        }
+        
+        .social-icon {
+            width: 4rem;
+            height: 4rem;
+            background: var(--bg-gray);
+            border-radius: 50%;
+            margin-bottom: 0.5rem;
+            transition: background 0.3s;
+        }
+        
+        .social-item:hover .social-icon {
+            background: #EFF6FF;
+        }
+        
+        .social-name {
+            font-size: 0.875rem;
+        }
+        
+        /* Podcast Player */
+        .podcast-player {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+            max-width: 48rem;
+            margin: 0 auto;
+        }
+        
+        .podcast-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .podcast-cover {
+            width: 5rem;
+            height: 5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 0.5rem;
+            margin-right: 1rem;
+        }
+        
+        .podcast-details h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .podcast-details p {
+            color: var(--text-light);
+        }
+        
+        .progress-bar {
+            background: var(--bg-gray);
+            height: 0.5rem;
+            border-radius: 0.25rem;
+            margin-bottom: 1rem;
+        }
+        
+        .progress-fill {
+            background: var(--primary-color);
+            height: 100%;
+            border-radius: 0.25rem;
+            width: 35%;
+        }
+        
+        .player-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .play-button {
+            width: 2.5rem;
+            height: 2.5rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .play-button:hover {
+            background: #2563EB;
+        }
+        
+        .time {
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+        
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .cta h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .cta p {
+            margin-bottom: 1.5rem;
+            max-width: 32rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta .btn-primary {
+            background: white;
+            color: var(--primary-color);
+        }
+        
+        .cta .btn-primary:hover {
+            background: #F3F4F6;
+        }
+        
+        /* Footer */
+        footer {
+            background: #111827;
+            color: white;
+            padding: 3rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-content {
+                grid-template-columns: 2fr 1fr 1fr;
+            }
+        }
+        
+        .footer-section h3 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section p {
+            color: #9CA3AF;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-links a {
+            color: #9CA3AF;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .footer-social a {
+            width: 1.5rem;
+            height: 1.5rem;
+            background: #374151;
+            border-radius: 50%;
+            display: block;
+            transition: background 0.3s;
+        }
+        
+        .footer-social a:hover {
+            background: #4B5563;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-bottom {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+        
+        .footer-bottom-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .footer-bottom-links a {
+            color: #9CA3AF;
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-bottom-links a:hover {
+            color: white;
+        }
+        
+        /* Carousel */
+        .carousel {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 0.75rem;
+        }
+        
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .carousel-item {
+            width: 100%;
+            flex-shrink: 0;
+        }
+        
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            color: var(--text-dark);
+            border: none;
+            border-radius: 50%;
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .carousel-control:hover {
+            background: white;
+        }
+        
+        .carousel-prev {
+            left: 1rem;
+        }
+        
+        .carousel-next {
+            right: 1rem;
+        }
+        
+        .carousel-indicators {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .carousel-indicator {
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .carousel-indicator.active {
+            background: var(--primary-color);
+        }
+        
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+        
+        .mb-2 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+        
+        .mb-6 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .mb-8 {
+            margin-bottom: 2rem;
+        }
+        
+        .text-sm {
+            font-size: 0.875rem;
+        }
+        
+        .text-lg {
+            font-size: 1.125rem;
+        }
+        
+        .text-xl {
+            font-size: 1.25rem;
+        }
+        
+        .text-2xl {
+            font-size: 1.5rem;
+        }
+        
+        .font-semibold {
+            font-weight: 600;
+        }
+        
+        .font-bold {
+            font-weight: 700;
+        }
+        
+        .text-gray-600 {
+            color: var(--text-light);
+        }
+        
+        .text-blue-600 {
+            color: var(--primary-color);
+        }
+        
+        .hover\:text-blue-800:hover {
+            color: #1E40AF;
+        }
+        
+        /* Focus styles for accessibility */
+        button:focus,
+        a:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+        
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip to Content -->
+    <a href="#main-content" class="skip-to-content">Skip to content</a>
+    
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="top-bar-links">
+                <a href="mailto:info@istn.ac.id">info@istn.ac.id</a>
+                <a href="tel:+62217980011">+62 21 798 0011</a>
+            </div>
+            <div>
+                <a href="#">Aplikasi Internal</a>
+                <a href="#">Portal Mahasiswa</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Navigation -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <div class="logo-icon"></div>
+                    <span class="logo-text">ISTN</span>
+                </div>
+                
+                <div class="nav-menu">
+                    <a href="#beranda">Beranda</a>
+                    <a href="#program-studi">Program Studi</a>
+                    <a href="#beasiswa">Beasiswa</a>
+                    <a href="#karir">Karir</a>
+                    <a href="#daftar">Daftar</a>
+                    <a href="#tentang-kami">Tentang Kami</a>
+                    <a href="#alumni">Alumni</a>
+                    <a href="#berita">Berita</a>
+                    <a href="#kolaborasi">Kolaborasi Strategis</a>
+                    <a href="#tdc">TDC</a>
+                    <a href="#kemahasiswaan">Kemahasiswaan</a>
+                    <a href="#laporan">Laporan Tahunan</a>
+                    <a href="#aplikasi">Aplikasi Internal</a>
+                    <a href="#kalender">Kalender Akademik</a>
+                </div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu" aria-expanded="false">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path id="menuIcon" d="M4 6h16M4 12h16M4 18h16"></path>
+                        <path id="closeIcon" style="display:none" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </nav>
+            
+            <div class="mobile-menu" id="mobileMenu">
+                <a href="#beranda">Beranda</a>
+                <a href="#program-studi">Program Studi</a>
+                <a href="#beasiswa">Beasiswa</a>
+                <a href="#karir">Karir</a>
+                <a href="#daftar">Daftar</a>
+                <a href="#tentang-kami">Tentang Kami</a>
+                <a href="#alumni">Alumni</a>
+                <a href="#berita">Berita</a>
+                <a href="#kolaborasi">Kolaborasi Strategis</a>
+                <a href="#tdc">TDC</a>
+                <a href="#kemahasiswaan">Kemahasiswaan</a>
+                <a href="#laporan">Laporan Tahunan</a>
+                <a href="#aplikasi">Aplikasi Internal</a>
+                <a href="#kalender">Kalender Akademik</a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section id="beranda" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Wujudkan Masa Depan Digital Indonesia</h1>
+                    <p>Bergabunglah dengan ISTN untuk membangun karir di bidang sains dan teknologi</p>
+                    <a href="#daftar" class="btn-primary">Daftar Sekarang</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Programs Section -->
+        <section id="program-studi" class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Program Studi</h2>
+                    <p>Pilih program studi yang sesuai dengan minat dan bakat Anda</p>
+                </div>
+                
+                <div class="tabs">
+                    <div class="tab-buttons">
+                        <button class="tab-button active" data-tab="s1">S1 (Sarjana)</button>
+                        <button class="tab-button" data-tab="s2">S2 (Magister)</button>
+                        <button class="tab-button" data-tab="profesi">Profesi</button>
+                        <button class="tab-button" data-tab="rpl">RPL (Rekognisi Pembelajaran Lampau)</button>
+                    </div>
+                    
+                    <div class="tab-content active" id="s1">
+                        <div class="grid-2">
+                            <div class="card">
+                                <div class="card-content">
+                                    <h3>Teknik Informatika</h3>
+                                    <p>Fokus pada pengembangan perangkat lunak dan kecerdasan buatan</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-content">
+                                    <h3>Sistem Informasi</h3>
+                                    <p>Integrasi teknologi informasi dengan kebutuhan bisnis</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-content">
+                                    <h3>Teknik Elektro</h3>
+                                    <p>Studi tentang sistem listrik, elektronika, dan telekomunikasi</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-content">
+                                    <h3>Teknik Mesin</h3>
+                                    <p>Desain dan analisis sistem mekanikal termal</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="s2">
+                        <div class="grid-2">
+                            <div class="card">
+                                <div class="card-content">
+                                    <h3>Magister Teknik Informatika</h3>
+                                    <p>Pendalaman dalam bidang kecerdasan buatan dan data science</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-content">
+                                    <h3>Magister Sistem Informasi</h3>
+                                    <p>Strategi dan manajemen sistem informasi enterprise</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-content">
+                                    <h3>Magister Teknik Elektro</h3>
+                                    <p>Penelitian lanjutan dalam sistem tenaga dan kontrol</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="profesi">
+                        <div class="grid-2">
+                            <div class="card">
+                                <div class="card-content">
+                                    <h3>Profesi Insinyur</h3>
+                                    <p>Program pendidikan profesi untuk menjadi insinyur bersertifikat</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-content">
+                                    <h3>Profesi Teknologi Informasi</h3>
+                                    <p>Pendidikan profesi untuk ahli TI bersertifikat</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="rpl">
+                        <div class="grid-2">
+                            <div class="card">
+                                <div class="card-content">
+                                    <h3>RPL Teknik Informatika</h3>
+                                    <p>Pengakuan pembelajaran dari pengalaman kerja</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-content">
+                                    <h3>RPL Sistem Informasi</h3>
+                                    <p>Konversi pengalaman kerja menjadi kredit akademik</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- News Section -->
+        <section id="berita" class="section section-gray">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Berita & Sorotan</h2>
+                    <p>Informasi terkini seputar ISTN</p>
+                </div>
+                
+                <div class="grid-4">
+                    <div class="card">
+                        <div class="card-image"></div>
+                        <div class="card-content">
+                            <p class="text-sm text-gray-600 mb-2">15 Mei 2023</p>
+                            <h3>Rektor ISTN Lakukan Kunjungan ke ITB</h3>
+                            <p class="text-gray-600 mb-4">Diskusi kolaborasi penelitian dan pengembangan sains nasional</p>
+                            <a href="#" class="text-blue-600 font-semibold hover:text-blue-800">Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image"></div>
+                        <div class="card-content">
+                            <p class="text-sm text-gray-600 mb-2">10 Mei 2023</p>
+                            <h3>ISTN Dorong Kedaulatan Digital Kesehatan</h3>
+                            <p class="text-gray-600 mb-4">Pengembangan platform kesehatan digital berbasis AI</p>
+                            <a href="#" class="text-blue-600 font-semibold hover:text-blue-800">Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image"></div>
+                        <div class="card-content">
+                            <p class="text-sm text-gray-600 mb-2">5 Mei 2023</p>
+                            <h3>ISTN Buka Peluang Magang di Jepang</h3>
+                            <p class="text-gray-600 mb-4">Kerjasama dengan perusahaan teknologi Jepang untuk program magang</p>
+                            <a href="#" class="text-blue-600 font-semibold hover:text-blue-800">Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image"></div>
+                        <div class="card-content">
+                            <p class="text-sm text-gray-600 mb-2">28 April 2023</p>
+                            <h3>Mahasiswa ISTN Juara Hackathon Nasional</h3>
+                            <p class="text-gray-600 mb-4">Tim dari ISTN berhasil meraih juara pertama dalam kompetisi hackathon tingkat nasional</p>
+                            <a href="#" class="text-blue-600 font-semibold hover:text-blue-800">Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Partners Section -->
+        <section id="kolaborasi" class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Kolaborasi Strategis</h2>
+                    <p>ISTN Kampus Kolaborasi: ISTN x Industri</p>
+                </div>
+                
+                <div class="partner-grid">
+                    <div class="partner-item">
+                        <div class="partner-placeholder">
+                            <div class="partner-icon"></div>
+                            <p class="partner-name">PT Telkom Indonesia</p>
+                        </div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-placeholder">
+                            <div class="partner-icon"></div>
+                            <p class="partner-name">PT PLN</p>
+                        </div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-placeholder">
+                            <div class="partner-icon"></div>
+                            <p class="partner-name">PT Pertamina</p>
+                        </div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-placeholder">
+                            <div class="partner-icon"></div>
+                            <p class="partner-name">Microsoft Indonesia</p>
+                        </div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-placeholder">
+                            <div class="partner-icon"></div>
+                            <p class="partner-name">Google Indonesia</p>
+                        </div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-placeholder">
+                            <div class="partner-icon"></div>
+                            <p class="partner-name">Tokopedia</p>
+                        </div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-placeholder">
+                            <div class="partner-icon"></div>
+                            <p class="partner-name">Traveloka</p>
+                        </div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-placeholder">
+                            <div class="partner-icon"></div>
+                            <p class="partner-name">Gojek</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Alumni Section -->
+        <section id="alumni" class="section section-gray">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Alumni Unggulan</h2>
+                    <p>Prestasi alumni ISTN di berbagai bidang</p>
+                </div>
+                
+                <div class="grid-3">
+                    <div class="card text-center">
+                        <div class="card-content">
+                            <div style="width: 8rem; height: 8rem; background: var(--bg-gray); border-radius: 50%; margin: 0 auto 1rem;"></div>
+                            <h3>Dr. Ir. Afrianyah Noor, M.Sc.</h3>
+                            <p class="text-blue-600 font-semibold mb-2">Direktur Teknologi Informasi, Kementerian Kesehatan RI</p>
+                            <p class="text-gray-600">Memimpin transformasi digital layanan kesehatan nasional</p>
+                        </div>
+                    </div>
+                    <div class="card text-center">
+                        <div class="card-content">
+                            <div style="width: 8rem; height: 8rem; background: var(--bg-gray); border-radius: 50%; margin: 0 auto 1rem;"></div>
+                            <h3>Prof. Dr. Budi Santoso, S.T., M.T.</h3>
+                            <p class="text-blue-600 font-semibold mb-2">Guru Besar Teknik Informatika, Universitas Indonesia</p>
+                            <p class="text-gray-600">Peneliti utama dalam bidang kecerdasan buatan</p>
+                        </div>
+                    </div>
+                    <div class="card text-center">
+                        <div class="card-content">
+                            <div style="width: 8rem; height: 8rem; background: var(--bg-gray); border-radius: 50%; margin: 0 auto 1rem;"></div>
+                            <h3>Rina Wijaya, S.Kom., M.M.</h3>
+                            <p class="text-blue-600 font-semibold mb-2">CEO & Founder, TechStart Indonesia</p>
+                            <p class="text-gray-600">Membangun startup teknologi dengan valuasi triliunan rupiah</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Social Media Section -->
+        <section class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Ikuti Kami di Media Sosial</h2>
+                </div>
+                
+                <div class="social-grid">
+                    <a href="https://facebook.com/istn.ac.id" class="social-item" aria-label="Facebook">
+                        <div class="social-icon"></div>
+                        <span class="social-name">Facebook</span>
+                    </a>
+                    <a href="https://twitter.com/istn_official" class="social-item" aria-label="Twitter">
+                        <div class="social-icon"></div>
+                        <span class="social-name">Twitter</span>
+                    </a>
+                    <a href="https://instagram.com/istn_official" class="social-item" aria-label="Instagram">
+                        <div class="social-icon"></div>
+                        <span class="social-name">Instagram</span>
+                    </a>
+                    <a href="https://youtube.com/istn_official" class="social-item" aria-label="YouTube">
+                        <div class="social-icon"></div>
+                        <span class="social-name">YouTube</span>
+                    </a>
+                    <a href="https://linkedin.com/school/istn" class="social-item" aria-label="LinkedIn">
+                        <div class="social-icon"></div>
+                        <span class="social-name">LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Podcast/Radio Section -->
+        <section class="section section-gray">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>ISTN Radio</h2>
+                    <p>Dengarkan diskusi menarik tentang teknologi dan inovasi</p>
+                </div>
+                
+                <div class="podcast-player">
+                    <div class="podcast-info">
+                        <div class="podcast-cover"></div>
+                        <div class="podcast-details">
+                            <h3>ISTN Radio Episode Terbaru</h3>
+                            <p>Dengan Dr. Budi Santoso</p>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <div class="player-controls">
+                        <span class="time">12:45</span>
+                        <button class="play-button" aria-label="Play/Pause">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" />
+                            </svg>
+                        </button>
+                        <span class="time">36:20</span>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-6">
+                    <a href="#podcast" class="btn-primary">Dengarkan Sekarang</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Campus Info Section -->
+        <section id="tentang-kami" class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Tentang ISTN</h2>
+                </div>
+                
+                <div class="grid-2" style="align-items: center;">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-4">Visi</h3>
+                        <p class="text-gray-600 mb-6">Menjadi institusi sains dan teknologi terkemuka di tingkat nasional dan internasional yang mampu menghasilkan lulusan berkarakter, inovatif, dan berdaya saing global.</p>
+                        
+                        <h3 class="text-2xl font-semibold mb-4">Misi</h3>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-start">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="#3B82F6" class="mr-2 mt-0.5 flex-shrink-0">
+                                    <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" />
+                                </svg>
+                                <span class="text-gray-600">Menyelenggarakan pendidikan tinggi berkualitas di bidang sains dan teknologi</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="#3B82F6" class="mr-2 mt-0.5 flex-shrink-0">
+                                    <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" />
+                                </svg>
+                                <span class="text-gray-600">Melaksanakan penelitian yang inovatif dan bermanfaat bagi masyarakat</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="#3B82F6" class="mr-2 mt-0.5 flex-shrink-0">
+                                    <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" />
+                                </svg>
+                                <span class="text-gray-600">Mengembangkan kemitraan strategis dengan industri dan institusi lainnya</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="#3B82F6" class="mr-2 mt-0.5 flex-shrink-0">
+                                    <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" />
+                                </svg>
+                                <span class="text-gray-600">Membangun karakter lulusan yang berintegritas dan bertanggung jawab</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="card">
+                            <div style="height: 16rem; background: var(--bg-gray);"></div>
+                            <div class="card-content">
+                                <h3 class="text-xl font-semibold mb-4">Kampus ISTN</h3>
+                                <div class="space-y-2 text-gray-600">
+                                    <p>Jl. Taman Makam Pahlawan No. 1, Kalibata</p>
+                                    <p>Jakarta Selatan, DKI Jakarta 12740</p>
+                                    <p>+62 21 798 0011</p>
+                                    <p>info@istn.ac.id</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Academic Calendar CTA -->
+        <section id="kalender" class="section section-gray">
+            <div class="container">
+                <div class="cta">
+                    <h3>Kalender Akademik</h3>
+                    <p>Lihat jadwal penting untuk tahun ajaran 2023/2024</p>
+                    <a href="#kalender" class="btn-primary">Lihat Kalender</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Institut Sains dan Teknologi Nasional</h3>
+                    <p>ISTN adalah institusi pendidikan tinggi yang berkomitmen untuk menghasilkan lulusan berkualitas di bidang sains dan teknologi. Dengan visi menjadi pusat unggulan dalam pengembangan ilmu pengetahuan dan teknologi, ISTN terus berinovasi dalam kurikulum dan metode pembelajaran.</p>
+                    <div class="footer-social">
+                        <a href="https://facebook.com/istn.ac.id" aria-label="Facebook"></a>
+                        <a href="https://twitter.com/istn_official" aria-label="Twitter"></a>
+                        <a href="https://instagram.com/istn_official" aria-label="Instagram"></a>
+                        <a href="https://youtube.com/istn_official" aria-label="YouTube"></a>
+                        <a href="https://linkedin.com/school/istn" aria-label="LinkedIn"></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Tautan Cepat</h4>
+                    <ul class="footer-links">
+                        <li><a href="#beranda">Beranda</a></li>
+                        <li><a href="#program-studi">Program Studi</a></li>
+                        <li><a href="#beasiswa">Beasiswa</a></li>
+                        <li><a href="#karir">Karir</a></li>
+                        <li><a href="#daftar">Daftar</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Kontak</h4>
+                    <ul class="footer-links">
+                        <li>Jl. Taman Makam Pahlawan No. 1, Kalibata</li>
+                        <li>Jakarta Selatan, DKI Jakarta 12740</li>
+                        <li>+62 21 798 0011</li>
+                        <li>info@istn.ac.id</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="text-sm">© 2023 Institut Sains dan Teknologi Nasional. Hak Cipta Dilindungi.</p>
+                <div class="footer-bottom-links">
+                    <a href="#privacy">Kebijakan Privasi</a>
+                    <a href="#terms">Syarat dan Ketentuan</a>
+                    <a href="#sitemap">Peta Situs</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = document.getElementById('menuIcon');
+        const closeIcon = document.getElementById('closeIcon');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            const isExpanded = mobileMenu.classList.contains('active');
+            mobileMenuBtn.setAttribute('aria-expanded', isExpanded);
+            
+            if (isExpanded) {
+                menuIcon.style.display = 'none';
+                closeIcon.style.display = 'block';
+            } else {
+                menuIcon.style.display = 'block';
+                closeIcon.style.display = 'none';
+            }
+        });
+        
+        // Close mobile menu when clicking on a link
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                menuIcon.style.display = 'block';
+                closeIcon.style.display = 'none';
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            });
+        });
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Tab functionality
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabId = button.getAttribute('data-tab');
+                
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Simple carousel for future use (can be activated if needed)
+        function initCarousel(container) {
+            const items = container.querySelectorAll('.carousel-item');
+            const prevBtn = container.querySelector('.carousel-prev');
+            const nextBtn = container.querySelector('.carousel-next');
+            const indicators = container.querySelectorAll('.carousel-indicator');
+            const inner = container.querySelector('.carousel-inner');
+            
+            let currentIndex = 0;
+            let autoplayInterval;
+            
+            function goToSlide(index) {
+                currentIndex = index;
+                inner.style.transform = `translateX(-${currentIndex * 100}%)`;
+                
+                // Update indicators
+                indicators.forEach((indicator, i) => {
+                    indicator.classList.toggle('active', i === currentIndex);
+                });
+            }
+            
+            function nextSlide() {
+                goToSlide((currentIndex + 1) % items.length);
+            }
+            
+            function prevSlide() {
+                goToSlide((currentIndex - 1 + items.length) % items.length);
+            }
+            
+            function startAutoplay() {
+                autoplayInterval = setInterval(nextSlide, 5000);
+            }
+            
+            function stopAutoplay() {
+                clearInterval(autoplayInterval);
+            }
+            
+            // Event listeners
+            prevBtn?.addEventListener('click', () => {
+                prevSlide();
+                stopAutoplay();
+                startAutoplay();
+            });
+            
+            nextBtn?.addEventListener('click', () => {
+                nextSlide();
+                stopAutoplay();
+                startAutoplay();
+            });
+            
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    goToSlide(index);
+                    stopAutoplay();
+                    startAutoplay();
+                });
+            });
+            
+            // Start autoplay
+            startAutoplay();
+            
+            // Pause on hover
+            container.addEventListener('mouseenter', stopAutoplay);
+            container.addEventListener('mouseleave', startAutoplay);
+        }
+        
+        // Initialize any carousels on the page
+        document.querySelectorAll('.carousel').forEach(initCarousel);
+        
+        // Add loading="lazy" to all images for performance
+        document.querySelectorAll('img').forEach(img => {
+            img.setAttribute('loading', 'lazy');
+        });
+        
+        // Announce page changes for screen readers
+        function announceToScreenReader(message) {
+            const announcement = document.createElement('div');
+            announcement.setAttribute('role', 'status');
+            announcement.setAttribute('aria-live', 'polite');
+            announcement.className = 'sr-only';
+            announcement.textContent = message;
+            document.body.appendChild(announcement);
+            
+            setTimeout(() => {
+                document.body.removeChild(announcement);
+            }, 1000);
+        }
+        
+        // Check for reduced motion preference
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        if (prefersReducedMotion.matches) {
+            // Disable animations for users who prefer reduced motion
+            document.documentElement.style.setProperty('--transition-duration', '0.01ms');
+        }
+        
+        // Add keyboard navigation for better accessibility
+        document.addEventListener('keydown', (e) => {
+            // Escape key closes mobile menu
+            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                mobileMenu.classList.remove('active');
+                menuIcon.style.display = 'block';
+                closeIcon.style.display = 'none';
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            }
+        });
+        
+        console.log('ISTN Website
