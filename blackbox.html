@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Institut Sains & Teknologi Nasional - ISTN-Inspired</title>
+  <meta name="description" content="Institut Sains & Teknologi – untuk Generasi Pelopor. Program studi berorientasi masa depan. Kurikulum adaptif. Kolaborasi industri nyata.">
+  <meta property="og:title" content="Institut Sains & Teknologi Nasional">
+  <meta property="og:description" content="Institut Sains & Teknologi – untuk Generasi Pelopor.">
+  <meta property="og:image" content="/assets/placeholder-og.jpg"> <!-- TODO: Replace with legal OG image -->
+  <meta property="og:url" content="https://example.com"> <!-- TODO: Replace with actual URL -->
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- TailwindCSS CDN for styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    /* Custom styles for prefers-reduced-motion */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+    /* Smooth transitions for mobile menu */
+    .mobile-menu {
+      transition: max-height 0.3s ease-in-out;
+      max-height: 0;
+      overflow: hidden;
+    }
+    .mobile-menu.open {
+      max-height: 500px; /* Adjust based on content */
+    }
+  </style>
+</head>
+<body class="text-gray-900 antialiased">
+  <!-- Skip to content link for accessibility -->
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:shadow-lg">
+    Skip to Main Content
+  </a>
+
+  <!-- Top Bar -->
+  <div class="bg-gray-900 text-gray-100">
+    <div class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between py-2 text-xs">
+      <div class="flex items-center gap-3">
+        <span class="opacity-80">Tentang Kami</span>
+        <span class="opacity-80">Kolaborasi</span>
+        <span class="opacity-80">Kemahasiswaan</span>
+        <span class="opacity-80">Laporan Tahunan</span>
+        <span class="opacity-80">Kalender Akademik</span>
+        <span class="opacity-80">Aplikasi Internal</span>
+      </div>
+      <div>
+        <span class="inline-flex items-center rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-700">🇮🇩 Bahasa Indonesia</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60 border-b border-gray-100">
+    <div class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between py-4">
+      <div class="flex items-center gap-3">
+        <div class="h-9 w-9 rounded-xl bg-gradient-to-br from-indigo-600 to-violet-600" aria-hidden="true"></div>
+        <div class="leading-tight">
+          <p class="text-sm font-semibold text-gray-900">ISTN-Inspired</p>
+          <p class="text-xs text-gray-500">Institut Sains & Teknologi Nasional</p>
+        </div>
+      </div>
+
+      <nav class="hidden lg:flex items-center gap-6" aria-label="Primary">
+        <a href="#beranda" class="text-sm font-medium text-gray-700 hover:text-gray-900">Beranda</a>
+        <a href="#program" class="text-sm font-medium text-gray-700 hover:text-gray-900">Program Studi</a>
+        <a href="#beasiswa" class="text-sm font-medium text-gray-700 hover:text-gray-900">Beasiswa</a>
+        <a href="#karir" class="text-sm font-medium text-gray-700 hover:text-gray-900">Karir</a>
+        <a href="#daftar" class="text-sm font-medium text-gray-700 hover:text-gray-900">Daftar</a>
+        <a href="#tentang" class="text-sm font-medium text-gray-700 hover:text-gray-900">Tentang Kami</a>
+        <a href="#alumni" class="text-sm font-medium text-gray-700 hover:text-gray-900">Alumni</a>
+        <a href="#berita" class="text-sm font-medium text-gray-700 hover:text-gray-900">Berita</a>
+        <a href="#kolaborasi" class="text-sm font-medium text-gray-700 hover:text-gray-900">Kolaborasi Strategis</a>
+        <a href="#tdc" class="text-sm font-medium text-gray-700 hover:text-gray-900">TDC</a>
+        <a href="#kemahasiswaan" class="text-sm font-medium text-gray-700 hover:text-gray-900">Kemahasiswaan</a>
+        <a href="#laporan" class="text-sm font-medium text-gray-700 hover:text-gray-900">Laporan Tahunan</a>
+        <a href="#aplikasi" class="text-sm font-medium text-gray-700 hover:text-gray-900">Aplikasi Internal</a>
+        <a href="#kalender" class="text-sm font-medium text-gray-700 hover:text-gray-900">Kalender Akademik</a>
+        <a href="#daftar" class="rounded-full bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-700">Daftar</a>
+      </nav>
+
+      <!-- Mobile menu button -->
+      <button id="mobile-menu-button" class="lg:hidden rounded-lg border border-gray-300 p-2" aria-label="Toggle menu" aria-expanded="false">
+        ☰
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="lg:hidden border-t border-gray-100 bg-white mobile-menu">
+      <div class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-4 grid gap-2">
+        <a href="#beranda" class="text-sm font-medium text-gray-700">Beranda</a>
+        <a href="#program" class="text-sm font-medium text-gray-700">Program Studi</a>
+        <a href="#beasiswa" class="text-sm font-medium text-gray-700">Beasiswa</a>
+        <a href="#karir" class="text-sm font-medium text-gray-700">Karir</a>
+        <a href="#daftar" class="text-sm font-medium text-gray-700">Daftar</a>
+        <a href="#tentang" class="text-sm font-medium text-gray-700">Tentang Kami</a>
+        <a href="#alumni" class="text-sm font-medium text-gray-700">Alumni</a>
+        <a href="#berita" class="text-sm font-medium text-gray-700">Berita</a>
+        <a href="#kolaborasi" class="text-sm font-medium text-gray-700">Kolaborasi Strategis</a>
+        <a href="#tdc" class="text-sm font-medium text-gray-700">TDC</a>
+        <a href="#kemahasiswaan" class="text-sm font-medium text-gray-700">Kemahasiswaan</a>
+        <a href="#laporan" class="text-sm font-medium text-gray-700">Laporan Tahunan</a>
+        <a href="#aplikasi" class="text-sm font-medium text-gray-700">Aplikasi Internal</a>
+        <a href="#kalender" class="text-sm font-medium text-gray-700">Kalender Akademik</a>
+        <a href="#daftar" class="mt-2 rounded-lg bg-indigo-600 px-4 py-2 text-center text-sm font-semibold text-white">Daftar</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- JavaScript for mobile menu toggle -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const button = document.getElementById('mobile-menu-button');
+      const menu = document.getElementById('mobile-menu');
+
+      button.addEventListener('click', function() {
+        const isOpen = menu.classList.contains('open');
+        menu.classList.toggle('open');
+        button.setAttribute('aria-expanded', !isOpen);
+      });
+
+      // Close menu on Escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && menu.classList.contains('open')) {
+          menu.classList.remove('open');
+          button.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+  </script>
+
+  <!-- Main Content -->
+  <main id="main">
+    <!-- Hero -->
+    <section id="beranda" class="relative overflow-hidden">
+      <div class="absolute inset-0 -z-10 bg-gradient-to-b from-indigo-50 to-white" aria-hidden="true"></div>
+      <div class="pointer-events-none absolute -top-24 -left-24 h-96 w-96 rounded-full bg-indigo-200/40 blur-3xl" aria-hidden="true"></div>
+      <div class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+        <div class="grid items-center gap-10 lg:grid-cols-2">
+          <div>
+            <span class="inline-flex items-center rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-700">Institut Sains & Teknologi</span>
+            <h1 class="mt-4 text-3xl font-black leading-tight text-gray-900 sm:text-5xl">
+              Institut Sains & Teknologi – untuk Generasi Pelopor
+            </h1>
+            <p class="mt-4 text-lg text-gray-600">Program studi berorientasi masa depan. Kurikulum adaptif. Kolaborasi industri nyata.</p>
+            <div class="mt-6 flex flex-wrap gap-3">
+              <a href="#daftar" class="rounded-full bg-indigo-600 px-5 py-3 text-sm font-semibold text-white shadow hover:bg-indigo-700">Daftar Sekarang</a>
+              <a href="#program" class="rounded-full border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700">Jelajahi Program</a>
+              <a href="#program" class="rounded-full border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700">Lihat Program</a>
+            </div>
+          </div>
+          <div class="relative aspect-[4/3] w-full overflow-hidden rounded-3xl border border-gray-200 bg-white shadow">
+            <div class="absolute inset-0 grid place-items-center">
+              <span class="text-sm text-gray-500">[Gambar Kampus Placeholder]</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Programs -->
+    <section id="program" class="py-16 lg:py-24">
+      <div class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mb-10 text-center">
+          <p class="mb-2 text-sm font-semibold uppercase tracking-widest text-indigo-600">Program Studi</p>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900">Pilihan Program Studi</h2>
+          <p class="mt-3 text-gray-600 max-w-2xl mx-auto">Siap level up? Kembangkan bakatmu jadi keahlian profesional.</p>
+        </div>
+
+        <div class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+          <!-- Tab Group (static, showing first tab active) -->
+          <div>
+            <div role="tablist" class="flex flex-wrap gap-2">
+              <button role="tab" aria-selected="true" class="rounded-full px-4 py-2 text-sm font-semibold transition border bg-indigo-600 text-white border-indigo-600">Sarjana (S1)</button>
+              <button role="tab" aria-selected="false" class="rounded-full px-4 py-2 text-sm font-semibold transition border bg-white text-gray-700 border-gray-300 hover:border-gray-400">Magister (S2)</button>
+              <button role="tab" aria-selected="false" class="rounded-full px-4 py-2 text-sm font-semibold transition border bg-white text-gray-700 border-gray-300 hover:border-gray-400">Profesi</button>
+              <button role="tab" aria-selected="false" class="rounded-full px-4 py-2 text-sm font-semibold transition border bg-white text-gray-700 border-gray-300 hover:border-gray-400">RPL</button>
+            </div>
+
+            <div class="mt-6">
+              <p class="text-sm text-gray-500">Fakultas Sains Terapan dan Teknologi</p>
+              <ul class="mt-4 grid gap-3 sm:grid-cols-2 md:grid-cols-3">
+                <li class="flex items-start gap-2"><span class="mt-1 text-indigo-600">•</span><span class="text-gray-800">Sarjana Arsitektur</span></li>
+                <li class="flex items-start gap-2"><span class="mt-1 text-indigo-600">•</span><span class="text-gray-800">Sarjana Arsitektur Lanskap</span></li>
+                <li class="flex items-start gap-2"><span class="mt-1 text-indigo-600">•</span><span class="text-gray-800">Sarjana Fisika</span></li>
+                <li class="flex items-start gap-2"><span class="mt-1 text-indigo-600">•</span><span class="text-gray-800">Sarjana Matematika</span></li>
+                <li class="flex items-start gap-2"><span class="mt-1 text-indigo-600">•</span><span class="text-gray-800">Sarjana Sistem Informasi</span></li>
+                <li class="flex items-start gap-2"><span class="mt-1 text-indigo-600">•</span><span class="text-gray-800">Sarjana Teknik Elektro</span></li>
+                <li class="flex items-start gap-2"><span class="mt-1 text-indigo-600">•</span><span class="text-gray-800">Sarjana Teknik Industri</span></li>
+                <li class="flex items-start gap-2"><span class="mt-1 text-indigo-600">•</span><span class="text-gray-800">Sarjana Teknik Informatika</span></li>
+                <li class="flex items-start gap-2"><span class="mt-1 text-indigo-600">•</span><span class="text-gray-800">Sarjana Teknik Mesin</span></li>
+                <li class="flex items-start gap-2"><span class="mt-1 text-indigo-600">•</span><span class="text-gray-800">Sarjana Teknik Sipil</span></li>
+              </ul>
+              <div class="mt-6">
+                <a href="#daftar" class="rounded-full bg-indigo-600 px-4 py-2 text-sm font-semibold text-white">Daftar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- News -->
+    <section id="berita" class="bg-gray-50 py-16 lg:py-24">
+      <div class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mb-10 text-center">
+          <p class="mb-2 text-sm font-semibold uppercase tracking-widest text-indigo-600">Berita Terbaru</p>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900">Sorotan & Kegiatan</h2>
+        </div>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm flex flex-col">
+            <div class="aspect-[16/9] w-full overflow-hidden rounded-xl bg-gray-100" aria-hidden="true"></div>
+            <div class="mt-4">
+              <p class="text-xs uppercase tracking-wide text-indigo-600">28 Agt</p>
+              <h3 class="mt-1 text-lg font-semibold text-gray-900">Alur Penyelesaian Studi Mahasiswa ISTN</h3>
+              <p class="mt-2 text-sm text-gray-600">Panduan ringkas tahapan penyelesaian studi mahasiswa.</p>
+            </div>
+            <div class="mt-4">
+              <a href="#" class="text-sm font-semibold text-indigo-600 hover:text-indigo-700">Selengkapnya →</a>
+            </div>
+          </div>
+          <div class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm flex flex-col">
+            <div class="aspect-[16/9] w-full overflow-hidden rounded-xl bg-gray-100" aria-hidden="true"></div>
+            <div class="mt-4">
+              <p class="text-xs uppercase tracking-wide text-indigo-600">25 Agt</p>
+              <h3 class="mt-1 text-lg font-semibold text-gray-900">Rektor ISTN Lakukan Kunjungan ke ITB, bahas peluang kerja sama Tri Dharma</h3>
+              <p class="mt-2 text-sm text-gray-600">Kolaborasi akademik dan riset antara kampus.</
