@@ -7,7 +7,7 @@
   <meta name="description" content="Institut Sains & Teknologi – untuk Generasi Pelopor. Program studi berorientasi masa depan. Kurikulum adaptif. Kolaborasi industri nyata.">
   <meta property="og:title" content="Institut Sains & Teknologi Nasional">
   <meta property="og:description" content="Institut Sains & Teknologi – untuk Generasi Pelopor.">
-  <meta property="og:image" content="https://kelaskaryawan.com/wp-content/uploads/2023/07/2014-06-05-777x437-1-678x381.jpg"> <!-- TODO: Replace with legal OG image -->
+  <meta property="og:image" content="/assets/placeholder-og.jpg"> <!-- TODO: Replace with legal OG image -->
   <meta property="og:url" content="https://example.com"> <!-- TODO: Replace with actual URL -->
   <meta name="twitter:card" content="summary_large_image">
   <!-- TailwindCSS CDN for styling -->
@@ -40,6 +40,36 @@
     }
     .mobile-menu.open {
       max-height: 500px; /* Adjust based on content */
+    }
+    /* Dropdown styles for desktop */
+    .dropdown {
+      position: relative;
+    }
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 50;
+      min-width: 200px;
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 0.5rem;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      padding: 0.5rem 0;
+    }
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+    .dropdown-menu a {
+      display: block;
+      padding: 0.5rem 1rem;
+      text-sm;
+      color: #374151;
+      text-decoration: none;
+    }
+    .dropdown-menu a:hover {
+      background: #f3f4f6;
     }
   </style>
 </head>
@@ -79,14 +109,27 @@
 
       <nav class="hidden lg:flex items-center gap-6" aria-label="Primary">
         <a href="#beranda" class="text-sm font-medium text-gray-700 hover:text-gray-900">Beranda</a>
-        <a href="#program" class="text-sm font-medium text-gray-700 hover:text-gray-900">Program Studi</a>
+        <div class="dropdown">
+          <a href="#program" class="text-sm font-medium text-gray-700 hover:text-gray-900 cursor-pointer">Program Studi ▼</a>
+          <div class="dropdown-menu">
+            <a href="#program">Sarjana (S1)</a>
+            <a href="#program">Magister (S2)</a>
+            <a href="#program">Profesi</a>
+            <a href="#program">RPL</a>
+          </div>
+        </div>
         <a href="#beasiswa" class="text-sm font-medium text-gray-700 hover:text-gray-900">Beasiswa</a>
         <a href="#karir" class="text-sm font-medium text-gray-700 hover:text-gray-900">Karir</a>
         <a href="#daftar" class="text-sm font-medium text-gray-700 hover:text-gray-900">Daftar</a>
-        <a href="#tentang" class="text-sm font-medium text-gray-700 hover:text-gray-900">Tentang Kami</a>
-        <a href="#alumni" class="text-sm font-medium text-gray-700 hover:text-gray-900">Alumni</a>
+        <div class="dropdown">
+          <a href="#tentang" class="text-sm font-medium text-gray-700 hover:text-gray-900 cursor-pointer">Tentang Kami ▼</a>
+          <div class="dropdown-menu">
+            <a href="#tentang">Visi & Misi</a>
+            <a href="#alumni">Alumni</a>
+            <a href="#kolaborasi">Kolaborasi Strategis</a>
+          </div>
+        </div>
         <a href="#berita" class="text-sm font-medium text-gray-700 hover:text-gray-900">Berita</a>
-        <a href="#kolaborasi" class="text-sm font-medium text-gray-700 hover:text-gray-900">Kolaborasi Strategis</a>
         <a href="#tdc" class="text-sm font-medium text-gray-700 hover:text-gray-900">TDC</a>
         <a href="#kemahasiswaan" class="text-sm font-medium text-gray-700 hover:text-gray-900">Kemahasiswaan</a>
         <a href="#laporan" class="text-sm font-medium text-gray-700 hover:text-gray-900">Laporan Tahunan</a>
@@ -123,9 +166,10 @@
     </div>
   </header>
 
-  <!-- JavaScript for mobile menu toggle -->
+  <!-- JavaScript for mobile menu toggle and desktop interactions -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      // Mobile menu toggle
       const button = document.getElementById('mobile-menu-button');
       const menu = document.getElementById('mobile-menu');
 
@@ -141,6 +185,19 @@
           menu.classList.remove('open');
           button.setAttribute('aria-expanded', 'false');
         }
+      });
+
+      // Optional: Add keyboard navigation for dropdowns (for better accessibility)
+      const dropdowns = document.querySelectorAll('.dropdown');
+      dropdowns.forEach(dropdown => {
+        const link = dropdown.querySelector('a');
+        const menu = dropdown.querySelector('.dropdown-menu');
+        link.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+          }
+        });
       });
     });
   </script>
@@ -166,9 +223,8 @@
             </div>
           </div>
           <div class="relative aspect-[4/3] w-full overflow-hidden rounded-3xl border border-gray-200 bg-white shadow">
-            <div class="absolute inset-0 grid place-items-center">
-              <span class="text-sm text-gray-500">[Gambar Kampus Placeholder]</span>
-            </div>
+            <!-- TODO: Replace with legal image asset; this is a hotlinked image for demonstration -->
+            <img src="https://kelaskaryawan.com/wp-content/uploads/2023/07/2014-06-05-777x437-1-678x381.jpg" alt="Gedung kampus dengan nuansa modern" class="w-full h-full object-cover" loading="lazy" />
           </div>
         </div>
       </div>
@@ -241,5 +297,6 @@
               <p class="text-xs uppercase tracking-wide text-indigo-600">25 Agt</p>
               <h3 class="mt-1 text-lg font-semibold text-gray-900">Rektor ISTN Lakukan Kunjungan ke ITB, bahas peluang kerja sama Tri Dharma</h3>
               <p class="mt-2 text-sm text-gray-600">Kolaborasi akademik dan riset antara kampus.</
+
 
 
