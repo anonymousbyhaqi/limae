@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeonForge Labs | Engineering Tomorrow. Securing Today.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    /* Efek grid cyberpunk */
+    .cyber-grid {
+      background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 50px 50px;
+    }
+  </style>
+</head>
+
+<body class="relative overflow-x-hidden">
+
+  <!-- Efek Neon Background -->
+  <div class="absolute inset-0 -z-10 overflow-hidden">
+    <div class="absolute top-1/4 left-1/3 w-96 h-96 bg-pink-600/20 blur-3xl rounded-full"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600/20 blur-3xl rounded-full"></div>
+    <div class="absolute top-1/2 left-0 w-72 h-72 bg-purple-600/30 blur-3xl rounded-full"></div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 w-full bg-black/60 backdrop-blur-lg z-50 border-b border-purple-500/30">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
+      <h1 class="text-xl font-bold text-green-400">NeonForge Labs</h1>
+      <div class="space-x-6 text-gray-300 hidden md:block">
+        <a href="#home" class="hover:text-green-400">Beranda</a>
+        <a href="#about" class="hover:text-green-400">Tentang Kami</a>
+        <a href="#services" class="hover:text-green-400">Layanan</a>
+        <a href="#portfolio" class="hover:text-green-400">Portofolio</a>
+        <a href="#blog" class="hover:text-green-400">Berita</a>
+        <a href="#faq" class="hover:text-green-400">FAQ</a>
+        <a href="#contact" class="hover:text-green-400">Kontak</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="h-screen flex flex-col justify-center items-center text-center cyber-grid px-6">
+    <h2 class="text-6xl font-extrabold text-green-400 drop-shadow-[0_0_15px_rgba(0,255,0,0.8)]">Engineering Tomorrow</h2>
+    <p class="text-gray-300 mt-4 max-w-xl">Kami membangun solusi AI, keamanan siber, dan pengembangan software masa depan yang melampaui batas teknologi saat ini.</p>
+    <a href="#about" class="mt-8 inline-block bg-green-500 text-black font-semibold px-6 py-3 rounded-lg hover:bg-green-400 transition">
+      Jelajahi Sekarang
+    </a>
+  </section>
+
+  <!-- Tentang Kami -->
+  <section id="about" class="py-24 px-8 bg-black/80 relative">
+    <div class="max-w-6xl mx-auto text-center">
+      <h3 class="text-4xl font-bold text-purple-400 mb-6">Tentang Kami</h3>
+      <p class="text-gray-300 leading-relaxed max-w-3xl mx-auto">
+        NeonForge Labs adalah startup IT yang berfokus pada pemeliharaan dan pengembangan teknologi masa depan:
+        dari rekayasa kecerdasan buatan, analisis data, hingga keamanan jaringan. Kami hadir untuk membangun masa depan digital yang cerdas, aman, dan terhubung.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-8 mt-12">
+        <div class="bg-purple-900/20 border border-purple-500/40 p-6 rounded-lg">
+          <h4 class="text-green-400 text-xl font-bold mb-2">Visi</h4>
+          <p class="text-gray-400 text-sm">Menjadi pionir global dalam inovasi AI dan keamanan digital yang mendukung kemajuan manusia.</p>
+        </div>
+        <div class="bg-purple-900/20 border border-purple-500/40 p-6 rounded-lg">
+          <h4 class="text-green-400 text-xl font-bold mb-2">Misi</h4>
+          <p class="text-gray-400 text-sm">Membangun solusi teknologi adaptif, aman, dan berkelanjutan untuk semua sektor bisnis.</p>
+        </div>
+        <div class="bg-purple-900/20 border border-purple-500/40 p-6 rounded-lg">
+          <h4 class="text-green-400 text-xl font-bold mb-2">Nilai Inti</h4>
+          <p class="text-gray-400 text-sm">Inovasi, Keamanan, Kolaborasi, dan Etika Teknologi.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Layanan -->
+  <section id="services" class="py-24 px-8 cyber-grid">
+    <div class="max-w-6xl mx-auto text-center">
+      <h3 class="text-4xl font-bold text-blue-400 mb-10">Layanan Kami</h3>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-blue-900/20 border border-blue-500/40 p-6 rounded-lg hover:scale-105 transition">
+          <h4 class="text-green-400 text-xl font-bold mb-3">AI Engineering</h4>
+          <p class="text-gray-400 text-sm">Membuat sistem kecerdasan buatan yang dapat belajar, beradaptasi, dan mengoptimalkan proses bisnis.</p>
+        </div>
+        <div class="bg-blue-900/20 border border-blue-500/40 p-6 rounded-lg hover:scale-105 transition">
+          <h4 class="text-green-400 text-xl font-bold mb-3">Data Science</h4>
+          <p class="text-gray-400 text-sm">Analisis data tingkat lanjut untuk membantu pengambilan keputusan berbasis informasi yang akurat.</p>
+        </div>
+        <div class="bg-blue-900/20 border border-blue-500/40 p-6 rounded-lg hover:scale-105 transition">
+          <h4 class="text-green-400 text-xl font-bold mb-3">Cyber Security</h4>
+          <p class="text-gray-400 text-sm">Perlindungan menyeluruh dari ancaman digital untuk menjaga integritas dan privasi data Anda.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portofolio -->
+  <section id="portfolio" class="py-24 px-8 bg-black/80">
+    <div class="max-w-6xl mx-auto text-center">
+      <h3 class="text-4xl font-bold text-pink-400 mb-10">Portofolio</h3>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="border border-pink-500/40 p-6 rounded-lg bg-pink-900/20">
+          <h4 class="text-green-400 text-xl mb-2">AI Surveillance System</h4>
+          <p class="text-gray-400 text-sm">Mendeteksi ancaman keamanan real-time dengan analisis visual berbasis AI.</p>
+        </div>
+        <div class="border border-pink-500/40 p-6 rounded-lg bg-pink-900/20">
+          <h4 class="text-green-400 text-xl mb-2">Data Predictive Engine</h4>
+          <p class="text-gray-400 text-sm">Memprediksi tren bisnis dan perilaku pelanggan dengan akurasi tinggi.</p>
+        </div>
+        <div class="border border-pink-500/40 p-6 rounded-lg bg-pink-900/20">
+          <h4 class="text-green-400 text-xl mb-2">CyberDefense Dashboard</h4>
+          <p class="text-gray-400 text-sm">Panel kontrol interaktif untuk memantau dan menanggulangi ancaman siber.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog -->
+  <section id="blog" class="py-24 px-8 cyber-grid">
+    <div class="max-w-4xl mx-auto text-center">
+      <h3 class="text-4xl font-bold text-blue-400 mb-10">Berita Perusahaan</h3>
+      <div class="bg-blue-900/20 border border-blue-500/40 p-6 rounded-lg text-left">
+        <h4 class="text-green-400 text-2xl font-semibold mb-3">NeonForge Rilis Sistem AI Baru "Sentinel-X"</h4>
+        <p class="text-gray-400 text-sm">
+          Sistem ini mampu mendeteksi ancaman siber lebih cepat 40% dibandingkan generasi sebelumnya. Dengan arsitektur berbasis deep learning,
+          Sentinel-X menjadi tonggak baru dalam keamanan digital berbasis AI.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-24 px-8 bg-black/80">
+    <div class="max-w-5xl mx-auto">
+      <h3 class="text-4xl font-bold text-purple-400 mb-10 text-center">FAQ</h3>
+      <div class="space-y-6">
+        <div>
+          <h4 class="text-green-400 font-semibold">1. Apakah layanan bisa disesuaikan dengan kebutuhan klien?</h4>
+          <p class="text-gray-400 text-sm ml-4">Ya, setiap solusi kami fleksibel dan dapat diadaptasi sesuai kebutuhan spesifik klien.</p>
+        </div>
+        <div>
+          <h4 class="text-green-400 font-semibold">2. Apakah perusahaan menyediakan konsultasi gratis?</h4>
+          <p class="text-gray-400 text-sm ml-4">Kami menyediakan sesi konsultasi awal secara gratis untuk memahami kebutuhan Anda.</p>
+        </div>
+        <div>
+          <h4 class="text-green-400 font-semibold">3. Apakah tim NeonForge memiliki sertifikasi resmi?</h4>
+          <p class="text-gray-400 text-sm ml-4">Ya, tim kami terdiri dari profesional bersertifikat internasional di bidang AI dan Cybersecurity.</p>
+        </div>
+        <div>
+          <h4 class="text-green-400 font-semibold">4. Apakah proyek bisa dilakukan remote?</h4>
+          <p class="text-gray-400 text-sm ml-4">Tentu, kami terbiasa bekerja dengan sistem kolaborasi daring secara efisien dan aman.</p>
+        </div>
+        <div>
+          <h4 class="text-green-400 font-semibold">5. Bagaimana cara bermitra dengan NeonForge Labs?</h4>
+          <p class="text-gray-400 text-sm ml-4">Silakan isi formulir kontak di bawah ini, dan tim kami akan menghubungi Anda segera.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-24 px-8 cyber-grid">
+    <div class="max-w-4xl mx-auto text-center">
+      <h3 class="text-4xl font-bold text-green-400 mb-10">Hubungi Kami</h3>
+      <form class="space-y-6">
+        <input type="text" placeholder="Nama Lengkap" class="w-full p-3 rounded bg-black/60 border border-green-500/40 focus:outline-none focus:ring-2 focus:ring-green-400">
+        <input type="email" placeholder="Alamat Email" class="w-full p-3 rounded bg-black/60 border border-green-500/40 focus:outline-none focus:ring-2 focus:ring-green-400">
+        <textarea placeholder="Pesan Anda..." rows="4" class="w-full p-3 rounded bg-black/60 border border-green-500/40 focus:outline-none focus:ring-2 focus:ring-green-400"></textarea>
+        <button type="button" onclick="alert('Pesan berhasil dikirim (simulasi)')" class="bg-green-500 text-black font-semibold px-6 py-3 rounded-lg hover:bg-green-400 transition">
+          Kirim Pesan
+        </button>
+      </form>
+
+      <div class="mt-10 text-gray-400">
+        <p>📍 Alamat Fiktif: Jl. Teknologi No.99, Jakarta, Indonesia</p>
+        <iframe src="https://www.google.com/maps?q=Jakarta,+Indonesia&output=embed" width="100%" height="250" class="mt-4 border border-green-500/30 rounded-lg"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-6 text-center bg-black/90 border-t border-green-500/30">
+    <p class="text-gray-500 text-sm">© 2025 NeonForge Labs. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
