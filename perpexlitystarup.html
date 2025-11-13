@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="FutureTech Innovators - Empowering Tomorrow with Intelligent Solutions" />
+  <title>FutureTech Innovators - Home</title>
+  <style>
+    /* Reset & base */
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #F5F7FA;
+      color: #1A2A6C;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    a { text-decoration: none; color: #4B6CB7; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    header {
+      background: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .logo { font-weight: bold; font-size: 1.4rem; color: #1A2A6C; }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(26, 42, 108, 0.7), rgba(26, 42, 108, 0.7)), 
+                  url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1470&q=80') 
+                  center/cover no-repeat;
+      color: white;
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 2rem;
+    }
+    .hero h1 { font-size: 2.8rem; margin-bottom: 0.5rem; }
+    .hero p { font-size: 1.3rem; margin-bottom: 1.5rem; max-width: 600px; }
+    .btn-primary {
+      background-color: #4B6CB7;
+      color: white;
+      padding: 0.75rem 2rem;
+      border: none;
+      border-radius: 40px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .btn-primary:hover { background-color: #1A2A6C; }
+
+    /* Features Section */
+    .features {
+      max-width: 1100px;
+      margin: 3rem auto 5rem;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 0 1rem;
+    }
+    .feature-card {
+      background: white;
+      padding: 1.8rem 2rem;
+      border-radius: 12px;
+      flex: 1 1 250px;
+      box-shadow: 0 8px 20px rgba(26, 42, 108, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .feature-card:hover { transform: translateY(-8px); }
+    .feature-icon { font-size: 3rem; margin-bottom: 1rem; color: #1A2A6C; }
+    .feature-title { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.6rem; }
+    .feature-desc { color: #555; font-size: 1rem; line-height: 1.4; }
+
+    /* About Section */
+    .about {
+      background: white;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .about h2 { font-size: 2rem; color: #1A2A6C; margin-bottom: 1rem; }
+    .about p { max-width: 800px; margin: 0 auto; color: #444; }
+
+    /* Services Section */
+    .services {
+      padding: 4rem 2rem;
+      text-align: center;
+      background: #F0F4FF;
+    }
+    .services h2 { font-size: 2rem; margin-bottom: 2rem; color: #1A2A6C; }
+    .service-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .service-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      width: 280px;
+      box-shadow: 0 6px 16px rgba(26, 42, 108, 0.1);
+    }
+    .service-card h3 { color: #1A2A6C; margin-bottom: 0.5rem; }
+
+    /* Portfolio Section */
+    .portfolio {
+      background: white;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .portfolio h2 { font-size: 2rem; color: #1A2A6C; margin-bottom: 2rem; }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .portfolio-item img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(26,42,108,0.1);
+    }
+    .portfolio-item p { margin-top: 0.5rem; color: #333; }
+
+    /* Team Section */
+    .team {
+      background: #F0F4FF;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .team h2 { font-size: 2rem; margin-bottom: 2rem; color: #1A2A6C; }
+    .team-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .team-member {
+      background: white;
+      border-radius: 12px;
+      width: 240px;
+      padding: 1.5rem;
+      box-shadow: 0 6px 16px rgba(26,42,108,0.1);
+    }
+    .team-member img {
+      width: 100%;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+    .team-member h3 { margin: 0.5rem 0; color: #1A2A6C; }
+    .team-member p { color: #555; font-size: 0.95rem; }
+
+    /* Contact Section */
+    .contact {
+      padding: 4rem 2rem;
+      text-align: center;
+      background: white;
+    }
+    .contact h2 { font-size: 2rem; color: #1A2A6C; margin-bottom: 1rem; }
+    form {
+      max-width: 500px;
+      margin: 2rem auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    input, textarea {
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    textarea { resize: vertical; min-height: 120px; }
+    button[type="submit"] {
+      background-color: #4B6CB7;
+      color: white;
+      border: none;
+      padding: 0.8rem;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button[type="submit"]:hover { background-color: #1A2A6C; }
+
+    /* Footer */
+    footer {
+      background: #1A2A6C;
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .features, .service-grid, .team-grid { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">FutureTech Innovators</div>
+  <nav>
+    <ul>
+      <li><a href="#home" aria-label="Home">Home</a></li>
+      <li><a href="#about" aria-label="About Us">About Us</a></li>
+      <li><a href="#services" aria-label="Services">Services</a></li>
+      <li><a href="#portfolio" aria-label="Portfolio">Portfolio</a></li>
+      <li><a href="#team" aria-label="Team">Team</a></li>
+      <li><a href="#contact" aria-label="Contact Us">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <h1>Empowering Tomorrow with Intelligent Solutions</h1>
+  <p>Menghadirkan teknologi AI, analisis data, dan keamanan siber untuk masa depan bisnis Anda.</p>
+  <button class="btn-primary" onclick="location.href='#services'">Pelajari Solusi Kami</button>
+</section>
+
+<section class="features" aria-label="Keunggulan Perusahaan">
+  <article class="feature-card" tabindex="0">
+    <div class="feature-icon">🤖</div>
+    <h2 class="feature-title">AI Engineering Canggih</h2>
+    <p class="feature-desc">Membangun sistem AI custom yang memperkuat kapabilitas bisnis Anda secara inovatif dan scalable.</p>
+  </article>
+  <article class="feature-card" tabindex="0">
+    <div class="feature-icon">📊</div>
+    <h2 class="feature-title">Analisa Data Mendalam</h2>
+    <p class="feature-desc">Menyediakan insight berharga dari data besar untuk pengambilan keputusan yang tepat dan strategis.</p>
+  </article>
+  <article class="feature-card" tabindex="0">
+    <div class="feature-icon">🔒</div>
+    <h2 class="feature-title">Keamanan Siber Terpercaya</h2>
+    <p class="feature-desc">Menjamin perlindungan informasi bisnis Anda dari ancaman digital dengan teknologi cybersecurity terdepan.</p>
+  </article>
+</section>
+
+<!-- New Sections -->
+<section class="about" id="about">
+  <h2>Tentang Kami</h2>
+  <p>FutureTech Innovators adalah perusahaan teknologi yang berfokus pada pengembangan solusi berbasis kecerdasan buatan, data, dan keamanan siber. Kami percaya masa depan digital harus dibangun dengan inovasi, efisiensi, dan kepercayaan.</p>
+</section>
+
+<section class="services" id="services">
+  <h2>Layanan Kami</h2>
+  <div class="service-grid">
+    <div class="service-card">
+      <h3>AI Automation</h3>
+      <p>Otomatisasi proses bisnis dengan kecerdasan buatan untuk meningkatkan efisiensi dan produktivitas.</p>
+    </div>
+    <div class="service-card">
+      <h3>Data Analytics</h3>
+      <p>Transformasi data menjadi wawasan strategis yang mendukung keputusan bisnis lebih cepat dan akurat.</p>
+    </div>
+    <div class="service-card">
+      <h3>Cybersecurity</h3>
+      <p>Lindungi aset digital Anda dengan sistem keamanan berlapis dan pemantauan real-time 24/7.</p>
+    </div>
+  </div>
+</section>
+
+<section class="portfolio" id="portfolio">
+  <h2>Portofolio Kami</h2>
+  <div class="portfolio-grid">
+    <div class="portfolio-item">
+      <img src="https://via.placeholder.com/400x250" alt="Project 1">
+      <p>Smart Retail Analytics Platform</p>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://via.placeholder.com/400x250" alt="Project 2">
+      <p>AI-driven Fraud Detection System</p>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://via.placeholder.com/400x250" alt="Project 3">
+      <p>Secure Cloud Infrastructure Setup</p>
+    </div>
+  </div>
+</section>
+
+<section class="team" id="team">
+  <h2>Tim Kami</h2>
+  <div class="team-grid">
+    <div class="team-member">
+      <img src="https://via.placeholder.com/150" alt="CEO">
+      <h3>Anandito Byhaqi</h3>
+      <p>Founder & CEO</p>
+    </div>
+    <div class="team-member">
+      <img src="https://via.placeholder.com/150" alt="CTO">
+      <h3>Rizky Ahmad</h3>
+      <p>Chief Technology Officer</p>
+    </div>
+    <div class="team-member">
+      <img src="https://via.placeholder.com/150" alt="CMO">
+      <h3>Nadia Putri</h3>
+      <p>Chief Marketing Officer</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <h2>Hubungi Kami</h2>
+  <p>Ingin berdiskusi atau bekerja sama dengan kami? Kirim pesan melalui form di bawah ini.</p>
+  <form onsubmit="event.preventDefault(); alert('Pesan terkirim!');">
+    <input type="text" name="nama" placeholder="Nama Anda" required>
+    <input type="email" name="email" placeholder="Email Anda" required>
+    <textarea name="pesan" placeholder="Tulis pesan Anda..." required></textarea>
+    <button type="submit">Kirim Pesan</button>
+  </form>
+</section>
+
+<footer>
+  &copy; 2025 FutureTech Innovators — All Rights Reserved.
+</footer>
+
+</body>
+</html>
+
