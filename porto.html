@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anandito Byhaqi | Cyber Security Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #000;
+      color: #00ff9d;
+      font-family: 'Courier New', monospace;
+      overflow-x: hidden;
+    }
+
+    /* Efek animasi teks berkedip */
+    .blink {
+      animation: blink 1.5s infinite;
+    }
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    /* Tombol neon */
+    .neon-btn {
+      border: 1px solid #00ff9d;
+      color: #00ff9d;
+      background: transparent;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px #00ff9d inset, 0 0 10px #00ff9d;
+    }
+    .neon-btn:hover {
+      background: #00ff9d;
+      color: #000;
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #00ff9d, 0 0 60px #00ff9d inset;
+    }
+
+    /* Efek grid matrix */
+    .matrix-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(circle at 1px 1px, #00ff9d33 1px, transparent 1px);
+      background-size: 30px 30px;
+      z-index: -1;
+      animation: pulse 6s infinite alternate;
+    }
+    @keyframes pulse {
+      from { opacity: 0.3; }
+      to { opacity: 0.6; }
+    }
+
+    /* Divider garis */
+    .divider {
+      width: 120px;
+      height: 2px;
+      background-color: #00ff9d;
+      margin: 1rem auto;
+      border-radius: 1px;
+    }
+  </style>
+</head>
+
+<body class="flex flex-col items-center justify-center min-h-screen px-6 text-center">
+
+  <!-- Efek latar matrix -->
+  <div class="matrix-bg"></div>
+
+  <!-- Header -->
+  <header class="mb-8">
+    <h1 class="text-4xl md:text-5xl font-bold tracking-widest text-[#00ff9d]">
+      Anandito Byhaqi<span class="blink">_</span>
+    </h1>
+    <p class="mt-3 text-lg text-green-300">Cyber Security Specialist | AI Enthusiast</p>
+    <div class="divider"></div>
+  </header>
+
+  <!-- Deskripsi -->
+  <section class="max-w-2xl mb-10 text-green-200 leading-relaxed">
+    <p>
+      Halo, saya <span class="text-[#00ff9d] font-semibold">Anandito Byhaqi</span> — seorang penggemar dunia 
+      <span class="text-[#00ff9d]">Cyber Security</span> dan <span class="text-[#00ff9d]">Artificial Intelligence</span>.
+      Saya percaya bahwa keamanan siber bukan hanya tentang perlindungan data, tapi juga tentang memahami 
+      bagaimana sistem berpikir dan bereaksi.  
+    </p>
+    <p class="mt-4">
+      Melalui proyek ini, saya menggabungkan logika analisis digital dan kecerdasan buatan untuk membangun sistem 
+      yang lebih aman.
+    </p>
+  </section>
+
+  <!-- Tombol Link -->
+  <main class="w-full max-w-md space-y-4">
+    <a href="https://anonymousbyhaqi.github.io/limae/z.html" class="block py-3 rounded-lg neon-btn font-semibold">z Ai</a>
+    <a href="https://anonymousbyhaqi.github.io/limae/meta.html" class="block py-3 rounded-lg neon-btn font-semibold">meta AI</a>
+    <a href="https://anonymousbyhaqi.github.io/limae/phind.html" class="block py-3 rounded-lg neon-btn font-semibold">phind AI</a>
+    <a href="https://anonymousbyhaqi.github.io/limae/blackbox.html" class="block py-3 rounded-lg neon-btn font-semibold">blackbox AI</a>
+    <a href="https://anonymousbyhaqi.github.io/limae/index.html" class="block py-3 rounded-lg neon-btn font-semibold">chatGPT</a>
+    <a href="https://anonymousbyhaqi.github.io/limae/you.html" class="block py-3 rounded-lg neon-btn font-semibold">you AI</a>
+    <a href="https://anonymousbyhaqi.github.io/limae/gemini.html" class="block py-3 rounded-lg neon-btn font-semibold">gemini AI</a>
+    <a href="https://huggingface.co/" class="block py-3 rounded-lg neon-btn font-semibold">huggingface Tools</a>
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-12 text-green-700 text-sm">
+    © 2025 <span class="text-[#00ff9d] font-semibold">Anandito Byhaqi</span> — All rights reserved.
+  </footer>
+
+</body>
+</html>
