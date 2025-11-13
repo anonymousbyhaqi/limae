@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NexaTech</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <style>
+    /* --- Global Styles --- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Poppins", Arial, sans-serif;
+      color: #222;
+      background-color: #f8faff;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #007bff;
+      color: #fff;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    header nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1em;
+    }
+
+    header nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5em;
+    }
+
+    header nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    header nav a:hover {
+      color: #dff0ff;
+    }
+
+    /* --- Hero Section --- */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(to right, rgba(0, 123, 255, 0.7), rgba(0, 0, 128, 0.6)),
+        url('https://images.unsplash.com/photo-1526378722484-cc5c510b3d2d?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .hero h1 {
+      font-size: 2.5em;
+      animation: fadeInDown 1.2s ease;
+    }
+
+    .hero p {
+      margin-top: 1em;
+      font-size: 1.1em;
+      animation: fadeInUp 1.2s ease;
+    }
+
+    .hero button {
+      margin-top: 2em;
+      background: #fff;
+      color: #007bff;
+      border: none;
+      padding: 0.8em 2em;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s, transform 0.3s;
+      animation: fadeIn 1.8s ease;
+    }
+
+    .hero button:hover {
+      background: #dff0ff;
+      transform: scale(1.05);
+    }
+
+    /* --- Section Base --- */
+    section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 20px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      color: #007bff;
+      font-size: 2em;
+      position: relative;
+    }
+
+    h2::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: #007bff;
+      margin: 10px auto 0;
+      border-radius: 2px;
+    }
+
+    /* --- About --- */
+    .about {
+      text-align: center;
+      background: #fff;
+      border-radius: 16px;
+      padding: 60px 30px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    }
+
+    .about img {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 16px;
+      margin-top: 30px;
+      transition: transform 0.3s;
+    }
+
+    .about img:hover {
+      transform: scale(1.03);
+    }
+
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2em;
+      margin-top: 40px;
+    }
+
+    .stat {
+      background: #f0f6ff;
+      padding: 1.5em;
+      border-radius: 12px;
+      width: 180px;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .stat:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    /* --- Services --- */
+    .services ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2em;
+    }
+
+    .services li {
+      background: #fff;
+      border-radius: 16px;
+      padding: 2em;
+      text-align: center;
+      flex: 1 1 300px;
+      max-width: 340px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .services li:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.1);
+    }
+
+    .services i {
+      font-size: 2em;
+      color: #007bff;
+      margin-bottom: 10px;
+    }
+
+    /* --- Portfolio --- */
+    .portfolio ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2em;
+    }
+
+    .portfolio li {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .portfolio li:hover {
+      transform: scale(1.03);
+    }
+
+    .portfolio img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .portfolio h3 {
+      margin: 15px;
+      color: #007bff;
+    }
+
+    .portfolio p {
+      margin: 0 15px 20px;
+      color: #333;
+    }
+
+    /* --- Contact --- */
+    .contact form {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+
+    .contact input, .contact textarea {
+      padding: 1em;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      outline: none;
+      font-size: 1em;
+      transition: border 0.3s;
+    }
+
+    .contact input:focus, .contact textarea:focus {
+      border-color: #007bff;
+    }
+
+    .contact button {
+      background: #007bff;
+      color: #fff;
+      border: none;
+      padding: 0.8em;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .contact button:hover {
+      background: #005fcc;
+      transform: translateY(-2px);
+    }
+
+    iframe {
+      width: 100%;
+      border-radius: 16px;
+    }
+
+    /* --- Footer --- */
+    footer {
+      background-color: #007bff;
+      color: #fff;
+      padding: 1.5em;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    /* --- Animations --- */
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    @keyframes fadeInDown {
+      from {opacity: 0; transform: translateY(-20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 768px) {
+      header nav ul {
+        flex-direction: column;
+        background: #007bff;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        display: none;
+      }
+
+      header nav ul.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        cursor: pointer;
+        display: block;
+        color: #fff;
+        font-size: 1.5em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo"><strong>NexaTech</strong></div>
+      <div class="menu-toggle"><i class="fa-solid fa-bars"></i></div>
+      <ul>
+        <li><a href="#home">Beranda</a></li>
+        <li><a href="#about">Tentang Kami</a></li>
+        <li><a href="#services">Layanan</a></li>
+        <li><a href="#portfolio">Portofolio</a></li>
+        <li><a href="#contact">Hubungi Kami</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <h1>Solusi Teknologi Masa Depan untuk Bisnis Anda</h1>
+    <p>Kami menyediakan layanan IT inovatif untuk meningkatkan efisiensi dan keamanan bisnis Anda</p>
+    <button onclick="document.querySelector('#services').scrollIntoView({behavior:'smooth'})">Jelajahi Layanan Kami</button>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="about">
+    <h2>Tentang Kami</h2>
+    <p>NexaTech adalah perusahaan IT yang berfokus pada pengembangan solusi teknologi masa depan.</p>
+    <img src="https://images.unsplash.com/photo-1600880292089-90e9d7d4b3d8?auto=format&fit=crop&w=1200&q=80" alt="Tim NexaTech">
+    <div class="stats">
+      <div class="stat">
+        <h3>100+</h3>
+        <p>Proyek Selesai</p>
+      </div>
+      <div class="stat">
+        <h3>50+</h3>
+        <p>Klien Puas</p>
+      </div>
+      <div class="stat">
+        <h3>10+</h3>
+        <p>Tahun Pengalaman</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="services">
+    <h2>Layanan Kami</h2>
+    <ul>
+      <li>
+        <i class="fa-solid fa-robot"></i>
+        <h3>Pengembangan AI</h3>
+        <p>Solusi AI canggih untuk meningkatkan efisiensi bisnis Anda.</p>
+      </li>
+      <li>
+        <i class="fa-solid fa-shield-halved"></i>
+        <h3>Keamanan Jaringan</h3>
+        <p>Perlindungan data bisnis dari serangan siber dengan sistem keamanan mutakhir.</p>
+      </li>
+      <li>
+        <i class="fa-solid fa-mobile-screen-button"></i>
+        <h3>Aplikasi Mobile & Web</h3>
+        <p>Desain aplikasi responsif dan inovatif untuk semua platform.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Portfolio -->
+  <section id="portfolio" class="portfolio">
+    <h2>Portofolio Kami</h2>
+    <ul>
+      <li>
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Proyek 1">
+        <h3>Sistem Manajemen Data XYZ</h3>
+        <p>Meningkatkan efisiensi 30% dengan integrasi data dari berbagai sumber.</p>
+      </li>
+      <li>
+        <img src="https://images.unsplash.com/photo-1581091215367-59ab6b7b1b7b?auto=format&fit=crop&w=800&q=80" alt="Proyek 2">
+        <h3>Aplikasi Mobile ABC</h3>
+        <p>Meningkatkan pengalaman pengguna hingga 50% dengan UI/UX modern.</p>
+      </li>
+      <li>
+        <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=800&q=80" alt="Proyek 3">
+        <h3>Keamanan Jaringan DEF</h3>
+        <p>Melindungi data perusahaan dari ancaman siber tanpa pelanggaran selama 2 tahun.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <h2>Hubungi Kami</h2>
+    <form>
+      <input type="text" name="name" placeholder="Nama" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <textarea name="message" placeholder="Pesan" rows="5" required></textarea>
+      <button type="submit">Kirim</button>
+    </form>
+    <p>Alamat: Jl. Teknologi No. 123, Jakarta, Indonesia</p>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!..."></iframe>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 NexaTech. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // --- Toggle menu on mobile ---
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navUl = document.querySelector('nav ul');
+    menuToggle.addEventListener('click', () => {
+      navUl.classList.toggle('active');
+    });
+
+    // --- Scroll Animation on Reveal ---
+    const revealElements = document.querySelectorAll('section');
+    window.addEventListener('scroll', () => {
+      revealElements.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+          el.style.animation = "fadeIn 1s ease forwards";
+        }
+      });
+    });
+  </script>
+</body>
+</html>
