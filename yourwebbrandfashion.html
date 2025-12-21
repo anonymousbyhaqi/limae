@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Brand Fashion - Official Website</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== RESET & BASE ===== */
+    :root{
+      --bg: #f7f7f7;
+      --card-bg: #ffffff;
+      --primary: #111111;
+      --muted: #666666;
+      --accent: #111111;
+      --gap: 24px;
+      --container-padding: 20px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background:var(--bg);
+      color:var(--primary);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+    a{color:inherit;text-decoration:none}
+
+    /* ===== LAYOUT CONTAINER ===== */
+    .container {
+      max-width:1200px;
+      margin:0 auto;
+      padding: 0 var(--container-padding);
+    }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      width:100%;
+      background:#fff;
+      box-shadow:0 2px 10px rgba(0,0,0,0.06);
+      position:sticky;
+      top:0;
+      z-index:40;
+    }
+    .nav-inner {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:16px var(--container-padding);
+      max-width:1200px;
+      margin:0 auto;
+    }
+    .brand { font-weight:700; font-size:20px; letter-spacing:1px; font-family:"Playfair Display", serif; }
+    .nav-links {
+      display:flex;
+      gap:20px;
+      align-items:center;
+    }
+    .nav-links a{font-weight:500;color:var(--muted);padding:6px 8px;border-radius:8px}
+    .nav-links a:hover{background:rgba(0,0,0,0.04);color:var(--primary)}
+
+    /* hamburger for mobile */
+    .nav-toggle { display:none; background:transparent; border:none; font-size:22px; cursor:pointer; }
+    @media (max-width:860px){
+      .nav-links{ display:none; position:absolute; top:64px; right:12px; background: #fff; flex-direction:column; padding:12px; box-shadow:0 6px 20px rgba(0,0,0,0.12); border-radius:10px; min-width:160px; }
+      .nav-links.show{ display:flex; }
+      .nav-toggle{ display:block; }
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      display:flex;
+      gap:32px;
+      align-items:center;
+      justify-content:space-between;
+      padding:64px var(--container-padding);
+      background: linear-gradient(135deg,#1f1f1f,#464646);
+      color:#fff;
+    }
+    .hero .hero-text { max-width:56%; }
+    .hero h1 { font-family:"Playfair Display", serif; font-size:48px; line-height:1.05; margin-bottom:12px; }
+    .hero p { opacity:.92; font-size:16px; margin-bottom:18px; }
+    .hero-btn { background:#fff;color:#111;padding:12px 18px;border-radius:28px;font-weight:600;display:inline-block }
+    .hero-img { width:40%; height:420px; border-radius:18px; background-image:url('https://images.unsplash.com/photo-1521336575822-6da63fb45455'); background-size:cover; background-position:center; box-shadow:0 10px 30px rgba(0,0,0,0.32) }
+
+    @media (max-width:900px){
+      .hero{ flex-direction:column; text-align:center; padding:48px var(--container-padding) }
+      .hero .hero-text{ max-width:100% }
+      .hero-img{ width:88%; height:300px }
+      .hero h1{ font-size:36px }
+    }
+
+    /* ===== PRODUCTS ===== */
+    .section-title{ text-align:center; margin-top:48px; font-size:28px; font-weight:700; }
+    .products {
+      display:grid;
+      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+      gap:22px;
+      padding:28px var(--container-padding) 48px;
+      max-width:1200px;
+      margin:0 auto;
+    }
+    .product-card{
+      background:var(--card-bg);
+      border-radius:12px;
+      overflow:hidden;
+      box-shadow:0 6px 20px rgba(12,12,12,0.06);
+      transition:transform .28s ease, box-shadow .28s ease;
+      display:flex;
+      flex-direction:column;
+    }
+    .product-card img{ width:100%; height:220px; object-fit:cover; display:block; }
+    .product-card .info{ padding:14px 16px; }
+    .product-card h3{ font-size:16px; margin-bottom:6px; font-weight:600 }
+    .product-card p{ color:var(--muted); font-weight:600 }
+
+    .product-card:hover{ transform:translateY(-6px); box-shadow:0 18px 40px rgba(12,12,12,0.08) }
+
+    /* ===== DESC SCROLL (HORIZONTAL) ===== */
+    .desc-section {
+      padding: 28px var(--container-padding) 48px;
+      max-width:1200px;
+      margin: 0 auto;
+      position:relative;
+    }
+    .desc-top { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:16px; }
+    .desc-top h2{ margin:0; font-size:22px; font-weight:700 }
+    .desc-wrapper {
+      overflow:hidden;
+      position:relative;
+    }
+
+    .desc-scroll {
+      display:flex;
+      gap:18px;
+      padding-bottom:6px;
+      overflow-x:auto;
+      scroll-behavior:smooth;
+      -webkit-overflow-scrolling:touch;
+      scroll-snap-type:x mandatory;
+    }
+    .desc-scroll::-webkit-scrollbar{ height:8px }
+    .desc-scroll::-webkit-scrollbar-thumb{ background:rgba(0,0,0,0.15); border-radius:8px }
+
+    .desc-card {
+      scroll-snap-align:center;
+      flex: 0 0 320px;
+      min-width: 280px;
+      background: var(--card-bg);
+      padding:20px;
+      border-radius:12px;
+      box-shadow:0 10px 28px rgba(0,0,0,0.06);
+      font-size:15.5px;
+      line-height:1.6;
+      transition: transform .28s ease, box-shadow .28s ease;
+    }
+    .desc-card:hover{ transform:translateY(-6px); box-shadow:0 20px 48px rgba(0,0,0,0.08) }
+
+    /* arrow controls */
+    .desc-arrow {
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      width:44px;height:44px;border-radius:10px;
+      display:flex;align-items:center;justify-content:center;
+      background:rgba(255,255,255,0.9); box-shadow:0 6px 18px rgba(0,0,0,0.08);
+      cursor:pointer; border:none;
+      z-index:30;
+      transition:opacity .18s ease, transform .12s ease;
+      opacity:0;
+      backdrop-filter: blur(4px);
+    }
+    .desc-arrow.show{ opacity:1 }
+    .desc-arrow:active{ transform:translateY(-50%) scale(.98) }
+    .desc-arrow.left{ left:-10px }
+    .desc-arrow.right{ right:-10px }
+
+    /* make arrows visible on larger screens */
+    @media (min-width:720px){
+      .desc-wrapper:hover .desc-arrow{ opacity:1 }
+    }
+
+    /* small screen tweaks */
+    @media (max-width:640px){
+      .desc-card{ flex:0 0 78%; min-width:68%; padding:18px }
+      .desc-arrow{ display:none } /* hide arrows on small screens, rely on touch */
+      .hero-img{ height:240px }
+      .product-card img{ height:180px }
+      .nav-inner{ padding:12px var(--container-padding) }
+    }
+
+    /* ===== CHAT WIDGET ===== */
+    .chat-btn {
+      position:fixed; right:20px; bottom:18px;
+      background:var(--accent); color:#fff; border-radius:999px;
+      padding:12px 16px; font-weight:700; z-index:60; cursor:pointer;
+      box-shadow:0 8px 28px rgba(0,0,0,0.18);
+      border:none;
+    }
+    .chat-box {
+      position:fixed; right:20px; bottom:78px; width:340px; max-width:92%;
+      background:#fff; border-radius:14px; box-shadow:0 18px 40px rgba(0,0,0,0.16);
+      display:flex; flex-direction:column; overflow:hidden; z-index:60;
+      transition:transform .22s ease, opacity .18s ease;
+    }
+    .chat-header { background:var(--accent); color:#fff; padding:12px 14px; font-weight:600 }
+    .chat-content { height:280px; overflow:auto; padding:12px; background:#f7f7f7; display:flex; flex-direction:column; gap:8px }
+    .chat-input{ display:flex; gap:8px; padding:10px; border-top:1px solid #eee; background:#fff }
+    .chat-input input{ flex:1; padding:10px;border-radius:8px;border:1px solid #e6e6e6; outline:none }
+    .chat-input button{ background:var(--accent); color:#fff;padding:10px 12px;border-radius:8px;border:none; cursor:pointer }
+
+    .msg { max-width:80%; padding:10px 12px; border-radius:12px; }
+    .msg.bot{ background:#efefef; color:#111; align-self:flex-start }
+    .msg.user{ background:var(--accent); color:#fff; align-self:flex-end }
+
+    /* chat collapsed initially */
+    .chat-box.hidden{ display:none }
+
+    /* mobile: chat becomes full screen panel */
+    @media (max-width:640px){
+      .chat-box {
+        right:0; left:0; bottom:0; top:0; width:100%; height:100%; border-radius:0; max-width:none;
+        display:flex;
+      }
+      .chat-header{ display:flex; justify-content:space-between; align-items:center }
+      .chat-content{ height:calc(100% - 110px) }
+      .chat-btn{ right:20px; bottom:16px }
+    }
+
+    /* small visual polish */
+    .sr-only { position:absolute!important; width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0 }
+  </style>
+</head>
+
+<body>
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner container">
+      <div class="brand">FASHION BRAND</div>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Buka menu">☰</button>
+
+      <div class="nav-links" id="navLinks" role="navigation" aria-label="Menu utama">
+        <a href="#">Home</a>
+        <a href="#products">Produk</a>
+        <a href="#about">Tentang</a>
+        <a href="#contact">Kontak</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" role="banner">
+    <div class="container" style="display:flex;align-items:center;gap:32px;flex-wrap:wrap">
+      <div class="hero-text">
+        <h1 id="typing-text">Elegan Premium Stylish</h1>
+        <p>Fashion terbaru untuk pakaian, celana, dan tas dengan kualitas terbaik. Tampil percaya diri dengan gaya terbaru dari brand kami.</p>
+        <a href="#products" class="hero-btn">Lihat Koleksi</a>
+      </div>
+
+      <div class="hero-img" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <style>
+    /* == text typing == */
+  #typing-text::after {
+  content: "|";
+  margin-left: 4px;
+  animation: blink 1s infinite;
+  opacity: 1;
+  }
+
+    @keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+  }
+  </style>
+
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const texts = ["Elegan dipakai.", "Kualitas premium.", "Stylish."];
+  const typingElement = document.getElementById("typing-text");
+
+  let textIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+
+  const typingSpeed = 120;
+  const deletingSpeed = 60;
+  const pauseAfterTyping = 1200;
+
+  function typeLoop() {
+    const currentText = texts[textIndex];
+
+    if (!isDeleting) {
+      typingElement.textContent = currentText.substring(0, charIndex + 1);
+      charIndex++;
+
+      if (charIndex === currentText.length) {
+        setTimeout(() => isDeleting = true, pauseAfterTyping);
+      }
+    } else {
+      typingElement.textContent = currentText.substring(0, charIndex - 1);
+      charIndex--;
+
+      if (charIndex === 0) {
+        isDeleting = false;
+        textIndex = (textIndex + 1) % texts.length;
+      }
+    }
+
+    setTimeout(typeLoop, isDeleting ? deletingSpeed : typingSpeed);
+  }
+
+  typeLoop();
+
+});
+</script>
+
+  <!-- PRODUCTS -->
+  <main>
+    <h2 class="section-title">Koleksi Unggulan</h2>
+    <section class="products" id="products" aria-label="Daftar produk">
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab" alt="Kemeja Premium">
+        <div class="info"><h3>Kemeja Premium</h3><p>IDR 249.000</p></div>
+      </div>
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b" alt="Celana Casual">
+        <div class="info"><h3>Celana Casual</h3><p>IDR 199.000</p></div>
+      </div>
+
+      <div class="product-card">
+        <img src="https://images.tokopedia.net/img/cache/700/VqbcmM/2024/6/11/d6db45b0-f0bc-43f9-b3bf-c107c7e06ff6.jpg">
+        <div class="info"><h3>Tas Stylish</h3><p>IDR 329.000</p></div>
+      </div>
+
+      <div class="product-card">
+        <img src="https://techwearofficial.com/cdn/shop/files/lost-in-thought-reflective-hooded-jacket-techwear-official-3.jpg?v=1685960424&width=1500" alt="Jaket Streetwear">
+        <div class="info"><h3>Jaket Streetwear</h3><p>IDR 459.000</p></div>
+      </div>
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127" alt="Hoodie Oversize">
+        <div class="info"><h3>Hoodie Oversize</h3><p>IDR 299.000</p></div>
+      </div>
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb" alt="Sneakers Premium">
+        <div class="info"><h3>Sneakers Premium</h3><p>IDR 599.000</p></div>
+      </div>
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1543076447-215ad9ba6923" alt="Tote Bag Canvas">
+        <div class="info"><h3>Tote Bag Canvas</h3><p>IDR 159.000</p></div>
+      </div>
+
+      <div class="product-card">
+        <img src="https://jadistore.com/wp-content/uploads/2021/08/ediko-topi-baseball-golf-logo-ediko-sport-fashion-black-312.jpg">
+        <div class="info"><h3>Topi Fashion</h3><p>IDR 89.000</p></div>
+      </div>
+
+      <div class="product-card">
+        <img src="https://laz-img-sg.alicdn.com/p/70240a9abe5d51fa812cefa396a8eb52.jpg">
+        <div class="info"><h3>Sepatu Fashion Sneakers</h3><p>IDR 249.000</p></div>
+      </div>
+    </section>
+
+<style>
+
+      /* PRODUCTS GRID */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 28px;
+  padding: 40px 6%;
+}
+
+/* CARD */
+.product-card {
+  opacity: 0;
+  transform: translateY(40px);
+  filter: blur(4px);
+  transition: all 0.9s ease;
+}
+
+/* saat muncul */
+.product-card.show {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+  animation: softBlink 0.8s ease;
+}
+
+/* ANIMASI BERKEDIP HALUS */
+@keyframes softBlink {
+  0% {
+    opacity: 0.2;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  70% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* IMAGE */
+.product-card img {
+  width: 100%;
+  border-radius: 16px;
+  display: block;
+  object-fit: cover;
+}
+
+/* INFO */
+.product-card .info {
+  margin-top: 12px;
+  text-align: center;
+}
+
+.product-card h3 {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.product-card p {
+  color: #555;
+  font-weight: 500;
+}
+</style>
+
+<script>
+// animasi scroll produk
+const productCards = document.querySelectorAll(".product-card");
+
+const productObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add("show");
+        }, index * 120); // muncul satu-satu
+      }
+    });
+  },
+  {
+    threshold: 0.2,
+  }
+);
+
+productCards.forEach(card => productObserver.observe(card));
+
+</script>
+
+
+    <!-- DESCRIPTION SCROLL -->
+    <section class="desc-section" id="about" aria-labelledby="about-title">
+      <div class="desc-top container">
+        <h2 id="about-title">Tentang Brand Fashion Kami</h2>
+        <small style="color:var(--muted)">Geser untuk membaca →</small>
+      </div>
+
+      <div class="desc-wrapper container" aria-hidden="false">
+        <button class="desc-arrow left" id="descPrev" aria-label="Geser kiri" title="Geser kiri" style="left:6px">&#9664;</button>
+        <div class="desc-scroll" id="descScroll" tabindex="0" aria-label="Deskripsi brand, geser untuk melihat">
+          <div class="desc-card">
+            <strong style="display:block;margin-bottom:8px;font-family:'Playfair Display',serif">Elegan & Modern</strong>
+            <p>Kami adalah brand fashion modern yang menghadirkan produk elegan, stylish, dan premium untuk pria maupun wanita.</p>
+          </div>
+
+          <div class="desc-card">
+            <strong style="display:block;margin-bottom:8px;font-family:'Playfair Display',serif">Quality First</strong>
+            <p>Setiap produk dibuat menggunakan material berkualitas tinggi serta melalui proses produksi yang teliti untuk memastikan daya tahan dan kenyamanan.</p>
+          </div>
+
+          <div class="desc-card">
+            <strong style="display:block;margin-bottom:8px;font-family:'Playfair Display',serif">Ekspresikan Dirimu</strong>
+            <p>Kami percaya bahwa gaya adalah bentuk ekspresi diri, sehingga setiap koleksi dirancang untuk meningkatkan kepercayaan diri penggunanya.</p>
+          </div>
+
+          <div class="desc-card">
+            <strong style="display:block;margin-bottom:8px;font-family:'Playfair Display',serif">Tren & Kenyamanan</strong>
+            <p>Kami terus menghadirkan inovasi fashion terbaru yang mengikuti tren global tanpa mengesampingkan kenyamanan saat digunakan sehari-hari.</p>
+          </div>
+        </div>
+        <button class="desc-arrow right" id="descNext" aria-label="Geser kanan" title="Geser kanan" style="right:6px">&#9654;</button>
+      </div>
+    </section>
+  </main>
+
+<!-- Koleksi unggulan  -->
+<section class="scroll-image-section">
+<div class="scroll-image-container">
+
+<div class="scroll-img">
+    <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" alt="fashion">
+    <p class="img-desc">Urban Street Jacket – breathable & lightweight</p>
+</div>
+
+<div class="scroll-img">
+    <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c" alt="fashion">
+    <p class="img-desc">Monochrome Hoodie – soft, oversized and comfy</p>
+</div>
+
+<div class="scroll-img">
+    <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f" alt="fashion">
+    <p class="img-desc">Minimalist Jacket – premium streetwear vibe</p>
+</div>
+
+<div class="scroll-img">
+    <img src="https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb" alt="fashion">
+    <p class="img-desc">Oversize Tee – ultra-soft cotton fabric</p>
+</div>
+
+</div>
+</section>
+
+
+<style>
+.scroll-image-section{
+  padding: 80px 6%;
+  background: #fff;
+}
+
+.scroll-image-container{
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+     gap: 30px;
+}
+
+.scroll-img{
+   opacity: 0;
+   transform: translateY(60px);
+   transition: all 2s ease;
+}
+
+.scroll-img.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-img img{
+  width: 100%;
+  border-radius: 16px;
+  object-fit: cover;;
+}
+
+/* Caption */
+.img-desc {
+  margin-top: 12px;
+  font-size: 15px;
+  color: #444;
+  text-align: center;
+}
+
+/* HAPUS efek center */
+.scroll-img.center{
+    transform:none;
+    height:220px;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .scroll-img{
+        flex:0 0 200px;
+        height:170px;
+    }
+    .scroll-img.center{
+        transform:none;
+        height:170px;
+    }
+    .img-desc{
+        font-size:12px;
+    }
+}
+</style>
+
+
+<script>
+const scrollContainer = document.querySelector('.scroll-image-container');
+const items = document.querySelectorAll('.scroll-img');
+
+
+function detectCenter(){
+let center = scrollContainer.scrollLeft + scrollContainer.offsetWidth/2;
+let closest = null;
+let closestDist = Infinity;
+
+
+items.forEach(item=>{
+let rect = item.getBoundingClientRect();
+let mid = rect.left + rect.width/2;
+let dist = Math.abs(mid - window.innerWidth/2);
+if(dist < closestDist){ closestDist = dist; closest = item; }
+});
+
+
+items.forEach(i=>i.classList.remove('center'));
+if(closest) closest.classList.add('center');
+}
+
+
+scrollContainer.addEventListener('scroll', detectCenter);
+window.addEventListener('resize', detectCenter);
+detectCenter();
+</script>
+
+<script type="text/javascript">
+// scroll animation
+const scrollImages = document.querySelectorAll(".scroll-img");
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  },
+  {
+    threshold: 0.2,
+  }
+);
+
+scrollImages.forEach((img) => observer.observe(img));
+
+</script>
+
+<!-- Manfaat dan Keunggulan -->
+<section class="brand-benefits">
+    <h2>Keunggulan & Manfaat Brand Kami</h2>
+
+    <div class="benefit-wrapper">
+
+        <div class="benefit-item">
+            <h3>Kualitas Premium</h3>
+            <p>Kami menggunakan material terbaik yang tahan lama, nyaman dipakai, dan ramah kulit untuk semua aktivitas.</p>
+        </div>
+
+        <div class="benefit-item">
+            <h3>Desain Modern & Elegan</h3>
+            <p>Setiap produk dibuat dengan gaya yang mengikuti tren internasional tanpa meninggalkan ciri khas brand.</p>
+        </div>
+
+        <div class="benefit-item">
+            <h3>Nyaman Dipakai Seharian</h3>
+            <p>Tekstur kain yang lembut dan fleksibel membuat produk nyaman digunakan dalam berbagai situasi.</p>
+        </div>
+
+        <div class="benefit-item">
+            <h3>Harga Terjangkau</h3>
+            <p>Kualitas premium tidak harus mahal. Kami menghadirkan produk terbaik dengan harga yang bersahabat.</p>
+        </div>
+
+        <div class="benefit-item">
+            <h3>Tahan Lama & Anti Luntur</h3>
+            <p>Proses pewarnaan menggunakan teknologi tinggi sehingga warna awet meski dipakai atau dicuci berkali-kali.</p>
+        </div>
+
+        <div class="benefit-item">
+            <h3>Cocok untuk Semua Gaya</h3>
+            <p>Mulai dari street style, casual hingga semi-formal, produk kami fleksibel mengikuti kebutuhan outfit harian.</p>
+        </div>
+
+    </div>
+</section>
+
+<style>
+.brand-benefits{
+    width: 100%;
+    padding: 60px 20px;
+    background: linear-gradient(to bottom, #ffffff, #f5faff);
+    text-align: center;
+}
+
+.brand-benefits h2{
+    font-family: "Poppins", sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.benefit-wrapper{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.benefit-item{
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.benefit-item:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.benefit-item h3{
+    font-size: 20px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.benefit-item p{
+    font-size: 14.5px;
+    color: #444;
+    line-height: 1.6;
+}
+</style>
+
+
+<!-- ============================
+       TESTIMONI PELANGGAN
+=============================== -->
+<section class="testimonial-section">
+    <h2 class="section-title">Apa Kata Pelanggan Kami?</h2>
+
+    <div class="testimonial-wrapper">
+        <div class="testimonial-track">
+            
+            <div class="testimonial-card">
+                <p class="testi-text">
+                    “Kualitas bahannya sangat premium. Detail jahitannya rapi dan nyaman dipakai. 
+                    Pengiriman juga cepat banget!”
+                </p>
+                <div class="testi-user">
+                    <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="">
+                    <div>
+                        <h4>Nadia Putri</h4>
+                        <span>Pembeli Verified</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <p class="testi-text">
+                    “Model pakaiannya simple tapi elegan. Pas dipakai langsung keliatan classy dan stylish.”
+                </p>
+                <div class="testi-user">
+                    <img src="https://randomuser.me/api/portraits/men/17.jpg" alt="">
+                    <div>
+                        <h4>Rama Aditya</h4>
+                        <span>Pelanggan Setia</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <p class="testi-text">
+                    “Tasnya cakep banget! Warna dan teksturnya mewah. Sudah repeat order 3 kali!”
+                </p>
+                <div class="testi-user">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="">
+                    <div>
+                        <h4>Sabrina Aulia</h4>
+                        <span>Repeat Customer</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <p class="testi-text">
+                    “Sepatunya nyaman dipakai seharian. Cocok buat outfit kantor maupun casual.”
+                </p>
+                <div class="testi-user">
+                    <img src="https://randomuser.me/api/portraits/men/31.jpg" alt="">
+                    <div>
+                        <h4>Agung Putra</h4>
+                        <span>Pembeli Verified</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<style>
+.testimonial-section {
+    padding: 30px 0;
+    background: #fafafa;
+}
+
+.testimonial-wrapper {
+    width: 100%;
+    overflow: hidden;
+    margin-top: 40px;
+    position: relative;
+}
+
+.testimonial-track {
+    display: flex;
+    gap: 26px;
+    padding: 0 40px;
+    transition: transform 0.6s ease;
+}
+
+.testimonial-card {
+    min-width: 330px;
+    background: #ffffff;
+    padding: 22px;
+    border-radius: 16px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    transition: transform .3s ease;
+    border: 1px solid #eaeaea;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-6px);
+}
+
+/* text */
+.testi-text {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 18px;
+}
+
+/* user */
+.testi-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.testi-user img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.testi-user h4 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.testi-user span {
+    font-size: 13px;
+    opacity: .7;
+}
+
+/* responsive */
+@media(max-width:600px){
+    .testimonial-card {
+        min-width: 260px;
+    }
+}
+</style>
+
+<script>
+let track = document.querySelector(".testimonial-track");
+let cards = document.querySelectorAll(".testimonial-card");
+
+let index = 0;
+
+function autoSlideTesti() {
+    index++;
+    if (index > cards.length - 1) index = 0;
+
+    track.style.transform = `translateX(-${index * (cards[0].offsetWidth + 26)}px)`;
+}
+
+setInterval(autoSlideTesti, 3000);
+</script>
+
+<!-- ============================
+            FAQ SECTION
+=============================== -->
+<section class="faq-section">
+    <h2 class="section-title">Pertanyaan yang Sering Diajukan</h2>
+
+    <div class="faq-container">
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Berapa lama estimasi pengiriman?</span>
+                <i class="arrow">+</i>
+            </div>
+            <div class="faq-answer">
+                Pengiriman memakan waktu 2–5 hari kerja tergantung lokasi. Untuk kota besar biasanya tiba dalam 2 hari.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Apakah produk bisa ditukar jika ukuran tidak sesuai?</span>
+                <i class="arrow">+</i>
+            </div>
+            <div class="faq-answer">
+                Bisa! Kamu dapat menukar ukuran dalam waktu 7 hari setelah barang diterima, selama kondisi produk masih baru.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Apakah semua produk ready stock?</span>
+                <i class="arrow">+</i>
+            </div>
+            <div class="faq-answer">
+                Hampir semua produk ready stock. Jika ada yang sold out, kami akan menandainya di halaman produk.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Bahan pakaian yang digunakan apa saja?</span>
+                <i class="arrow">+</i>
+            </div>
+            <div class="faq-answer">
+                Kami menggunakan material premium seperti cotton combed, fleece tebal, sintetis premium, dan kulit PU berkualitas.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Apakah aman berbelanja di website ini?</span>
+                <i class="arrow">+</i>
+            </div>
+            <div class="faq-answer">
+                Sangat aman! Data pelanggan terenkripsi dan pembayaran menggunakan sistem yang sudah tersertifikasi.
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+.faq-section {
+    padding: 30px 60px;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 40px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.faq-item {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 18px 20px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    border: 1px solid #eeeeee;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.faq-item:hover {
+    transform: translateY(-3px);
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 17px;
+    font-weight: 600;
+    color: #222;
+}
+
+.faq-answer {
+    margin-top: 12px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #555;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .4s ease, opacity .3s ease;
+    opacity: 0;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px;
+    opacity: 1;
+}
+
+.arrow {
+    font-size: 22px;
+    transition: transform .3s ease;
+}
+
+.faq-item.active .arrow {
+    transform: rotate(45deg);
+}
+
+/* Responsive */
+@media(max-width:600px){
+    .faq-section {
+        padding: 60px 20px;
+    }
+}
+</style>
+
+<script>
+const faqItems = document.querySelectorAll(".faq-item");
+
+faqItems.forEach(item => {
+    item.addEventListener("click", () => {
+        item.classList.toggle("active");
+    });
+});
+</script>
+
+<!-- FOOTER PREMIUM -->
+<footer style="background:#0d0d0d; color:white; padding:50px 20px; font-family:Arial, sans-serif;">
+
+  <div style="max-width:1200px; margin:auto; display:flex; flex-wrap:wrap; gap:40px; justify-content:space-between;">
+
+    <!-- Brand Info -->
+    <div style="flex:1; min-width:250px;">
+      <h3 style="font-size:26px; margin-bottom:15px; font-weight:700;">Brand Kami</h3>
+      <p style="line-height:1.7; color:#ccc;">
+        Kami berkomitmen memberikan layanan terbaik, pengalaman yang nyaman,
+        serta kualitas premium dalam setiap layanan yang kami hadirkan.
+      </p>
+    </div>
+
+    <!-- Kontak -->
+    <div style="flex:1; min-width:250px;">
+      <h3 style="font-size:26px; margin-bottom:15px; font-weight:700;">Kontak</h3>
+      <p style="margin:8px 0; color:#ccc;">
+        📧 Email: <b style="color:white;">test@gmail.com</b>
+      </p>
+      <p style="margin:8px 0; color:#ccc;">
+        📞 Telp: <b style="color:white;">082112174086</b>
+      </p>
+
+      <div style="margin-top:15px;">
+        <h4 style="font-size:20px; margin-bottom:10px;">Sosial Media</h4>
+        <div style="display:flex; gap:15px;">
+
+          <!-- Facebook -->
+          <a href="#" style="display:inline-block;" target="_blank">
+            <svg width="30" height="30" fill="white">
+              <path d="M22 0H8C3.58 0 0 3.58 0 8v14c0 4.42 3.58 8 8 8h7V19h-3v-4h3v-3c0-3.1 1.9-5 4.8-5 1.3 0 2.6 0.1 2.9 0.1v3.4h-2c-1.6 0-2 .8-2 2v2.5h4l-0.5 4H18v11h4c4.42 0 8-3.58 8-8V8c0-4.42-3.58-8-8-8z"/>
+            </svg>
+          </a>
+
+          <!-- Instagram -->
+          <a href="#" style="display:inline-block;" target="_blank">
+            <svg width="30" height="30" fill="white">
+              <path d="M16 7c2.4 0 2.7 0 3.6.1.9.1 1.4.2 1.8.4.5.2.9.5 1.3.9.4.4.7.8.9 1.3.2.4.3.9.4 1.8.1.9.1 1.2.1 3.6s0 2.7-.1 3.6c-.1.9-.2 1.4-.4 1.8-.2.5-.5.9-.9 1.3-.4.4-.8.7-1.3.9-.4.2-.9.3-1.8.4-.9.1-1.2.1-3.6.1s-2.7 0-3.6-.1c-.9-.1-1.4-.2-1.8-.4-.5-.2-.9-.5-1.3-.9-.4-.4-.7-.8-.9-1.3-.2-.4-.3-.9-.4-1.8C7 18.7 7 18.4 7 16s0-2.7.1-3.6c.1-.9.2-1.4.4-1.8.2-.5.5-.9.9-1.3.4-.4.8-.7 1.3-.9.4-.2.9-.3 1.8-.4C13.3 7 13.6 7 16 7m0-3C13.2 4 12.9 4 12 4.1 11.1 4.2 10.3 4.4 9.6 4.7c-.8.3-1.5.7-2.1 1.3-.6.6-1 1.3-1.3 2.1-.3.7-.5 1.5-.6 2.4C5.5 11.5 5.5 11.8 5.5 16s0 4.5.1 5.4c.1.9.3 1.7.6 2.4.3.8.7 1.5 1.3 2.1.6.6 1.3 1 2.1 1.3.7.3 1.5.5 2.4.6.9.1 1.2.1 3.9.1s3 0 3.9-.1c.9-.1 1.7-.3 2.4-.6.8-.3 1.5-.7 2.1-1.3.6-.6 1-1.3 1.3-2.1.3-.7.5-1.5.6-2.4.1-.9.1-1.2.1-3.9s0-3-.1-3.9c-.1-.9-.3-1.7-.6-2.4-.3-.8-.7-1.5-1.3-2.1-.6-.6-1.3-1-2.1-1.3-.7-.3-1.5-.5-2.4-.6C19 4 18.7 4 16 4z"/>
+              <circle cx="16" cy="16" r="4.3"/>
+            </svg>
+          </a>
+
+          <!-- Shopee -->
+          <a href="#" style="display:inline-block;" target="_blank">
+            <svg width="30" height="30" fill="white">
+              <path d="M22 12v11H10V12h12m2-2H8v15h16V10zM15 3c-2.2 0-4 1.8-4 4h2c0-1.1.9-2 2-2s2 
+              .9 2 2h2c0-2.2-1.8-4-4-4z"/>
+            </svg>
+          </a>
+
+          <!-- TikTok -->
+          <a href="#" style="display:inline-block;" target="_blank">
+            <svg width="30" height="30" fill="white">
+              <path d="M21 7.5c1.3 1 2.9 1.6 4.6 1.7V4.4c-.3.1-.7.1-1 .1-1.1 0-2.1-.4-2.9-1.1-.8-.7-1.3-1.7-1.4-2.8h-4v18.3c0 
+              1-.4 1.9-1.1 2.6-.7.7-1.6 1.1-2.6 1.1-2 0-3.7-1.6-3.7-3.6 0-2 1.7-3.6 3.7-3.6.3 0 .7 0 1 
+              .1V11c-.3 0-.7-.1-1-.1-4.7 0-8.6 3.7-8.6 8.4S8.6 27.7 13.2 27.7c2.3 0 4.4-.9 6-2.4 1.6-1.5 2.5-3.6 
+              2.5-5.7V7.5z"/>
+            </svg>
+          </a>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Map -->
+    <div style="flex:1; min-width:300px;">
+      <h3 style="font-size:26px; margin-bottom:15px; font-weight:700;">Lokasi Kami</h3>
+      <iframe 
+        width="100%" 
+        height="220" 
+        style="border:0; border-radius:10px;"
+        loading="lazy"
+        allowfullscreen
+        src="https://www.google.com/maps?q=-6.35418971352047,106.83314394289417&hl=es;z=14&output=embed">
+      </iframe>
+    </div>
+
+  </div>
+
+  <div style="text-align:center; margin-top:40px; color:#777; font-size:14px;">
+    © 2025 Brand Fashion. All Rights Reserved.
+  </div>
+
+</footer>
+
+
+  <!-- CHATBOT -->
+  <button class="chat-btn" id="chatToggle" aria-expanded="false">Chat</button>
+
+  <div class="chat-box hidden" id="chatBox" role="dialog" aria-modal="false" aria-label="Asisten Fashion">
+    <div class="chat-header">
+      <span>Fashion Assistant</span>
+      <button id="chatClose" aria-label="Tutup chat" style="background:transparent;border:none;color:#fff;font-size:18px;cursor:pointer">✕</button>
+    </div>
+    <div class="chat-content" id="chatContent" aria-live="polite">
+      <div class="msg bot">Halo! Ada produk yang ingin kamu tanyakan?(Harga baju, Promo tas, Diskon jaket) dll ... </div>
+    </div>
+    <div class="chat-input">
+      <input id="userInput" type="text" placeholder="Tulis sesuatu..." aria-label="Tulis pesan">
+      <button id="sendBtn">Kirim</button>
+    </div>
+  </div>
+
+  <script>
+    // NAV toggle (mobile)
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle?.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+
+    // DESC scroll controls
+    const descScroll = document.getElementById('descScroll');
+    const prev = document.getElementById('descPrev');
+    const next = document.getElementById('descNext');
+
+    function scrollByCard(dir=1) {
+      if(!descScroll) return;
+      const card = descScroll.querySelector('.desc-card');
+      if(!card) return;
+      const gap = parseInt(getComputedStyle(descScroll).gap || 18);
+      const width = card.getBoundingClientRect().width + gap;
+      descScroll.scrollBy({ left: width * dir, behavior: 'smooth' });
+    }
+
+    prev?.addEventListener('click', () => scrollByCard(-1));
+    next?.addEventListener('click', () => scrollByCard(1));
+
+    // keyboard accessibility for desc scroll
+    descScroll?.addEventListener('keydown', (e) => {
+      if(e.key === 'ArrowRight') { scrollByCard(1); e.preventDefault(); }
+      if(e.key === 'ArrowLeft') { scrollByCard(-1); e.preventDefault(); }
+    });
+
+    // show/hide arrows on touch devices: visible only on larger screens (CSS handles), but ensure they hide on small screens
+    function updateArrowVisibility() {
+      const arrows = document.querySelectorAll('.desc-arrow');
+      if(window.innerWidth < 720) arrows.forEach(a => a.classList.remove('show'));
+      else arrows.forEach(a => a.classList.add('show'));
+    }
+    window.addEventListener('resize', updateArrowVisibility);
+    updateArrowVisibility();
+
+    // CHAT behavior
+    const chatToggle = document.getElementById('chatToggle');
+    const chatBox = document.getElementById('chatBox');
+    const chatClose = document.getElementById('chatClose');
+    const sendBtn = document.getElementById('sendBtn');
+    const userInput = document.getElementById('userInput');
+    const chatContent = document.getElementById('chatContent');
+
+    function openChat() {
+      chatBox.classList.remove('hidden');
+      chatToggle.setAttribute('aria-expanded','true');
+      // on mobile, set aria-modal true for better a11y
+      if(window.innerWidth <= 640) { chatBox.setAttribute('aria-modal','true'); }
+      userInput?.focus();
+    }
+    function closeChat() {
+      chatBox.classList.add('hidden');
+      chatToggle.setAttribute('aria-expanded','false');
+      chatBox.setAttribute('aria-modal','false');
+      chatToggle.focus();
+    }
+
+    chatToggle?.addEventListener('click', () => {
+      if(chatBox.classList.contains('hidden')) openChat(); else closeChat();
+    });
+    chatClose?.addEventListener('click', closeChat);
+
+    // send message (dummy behavior)
+    function appendMessage(text, who='user'){
+      const el = document.createElement('div');
+      el.className = 'msg ' + (who === 'user' ? 'user' : 'bot');
+      el.textContent = text;
+      chatContent.appendChild(el);
+      chatContent.scrollTop = chatContent.scrollHeight;
+    }
+
+  sendBtn?.addEventListener('click', () => {
+  const val = userInput.value.trim().toLowerCase();
+  if(!val) return;
+
+  appendMessage(val,'user');
+  userInput.value = '';
+
+  const reply = getBotReply(val);
+  setTimeout(()=> appendMessage(reply,'bot'), 500);
+});
+
+
+                        // dummy bot reply
+      // ================= CHATBOT LOGIC =================
+
+// keyword intent
+const intents = {
+  salam: ["halo","hai","hi","hello","pagi","siang","sore","malam"],
+  harga: ["harga","berapa","price","biaya","murah"],
+  beli: ["beli","order","pesan","checkout","shop"],
+  promo: ["promo","diskon","sale","discount"]
+};
+
+// product keyword
+const products = {
+  baju: ["baju","kaos","kemeja","hoodie","pakaian"],
+  celana: ["celana","jeans","chino","cargo","pants"],
+  tas: ["tas","backpack","ransel","slingbag"],
+  topi: ["topi","cap","bucket"],
+  totebag: ["totebag","tote bag","tote","canvas bag"],
+  jaket: ["jaket","jacket","outer","windbreaker"],
+  sepatu: ["sepatu","shoes","sneakers","sneaker","running shoes","sepatu lari","sepatu casual","sepatu kasual"],
+  kacamata: ["kacamata","sunglasses","eyewear"]
+};
+
+// data jawaban
+const answers = {
+  baju: {
+    harga: "Harga baju kami mulai dari Rp 99.000 – Rp 199.000.",
+    beli: "Baju bisa dipesan lewat Shopee, Instagram, atau WhatsApp.",
+    promo: "Saat ini ada promo diskon baju hingga 20%."
+  },
+  celana: {
+    harga: "Harga celana mulai dari Rp 149.000.",
+    beli: "Celana tersedia di marketplace resmi kami.",
+    promo: "Promo celana: beli 2 gratis ongkir."
+  },
+  tas: {
+    harga: "Harga tas mulai dari Rp 129.000.",
+    beli: "Tas bisa dibeli via Shopee & TikTok Shop.",
+    promo: "Tas sedang promo cashback 15%."
+  },
+  topi: {
+    harga: "Harga topi mulai dari Rp 59.000.",
+    beli: "Topi ready stock di toko online kami.",
+    promo: "Topi diskon 10% minggu ini."
+  },
+  kacamata: {
+    harga: "Harga kacamata mulai dari Rp 89.000.",
+    beli: "Kacamata bisa dipesan via marketplace.",
+    promo: "Promo beli kacamata gratis pouch."
+  },
+  jaket: {
+    harga: "Harga jaket kami mulai dari Rp 199.000 – Rp 349.000.",
+    beli: "Jaket bisa dipesan melalui Shopee, Instagram, atau WhatsApp.",
+    promo: "Promo jaket: diskon hingga 25% untuk model tertentu."
+  },
+    totebag: {
+    harga: "Harga totebag mulai dari Rp 79.000 – Rp 129.000.",
+    beli: "Totebag tersedia di marketplace resmi kami.",
+    promo: "Promo totebag: beli 2 gratis ongkir."
+  },
+  sepatu: {
+    harga: "Harga sepatu kami mulai dari Rp 249.000 – Rp 599.000.",
+    beli: "Sepatu bisa dipesan melalui Shopee, TikTok Shop, atau WhatsApp resmi kami.",
+    promo: "Saat ini ada promo sepatu diskon hingga 30% untuk model tertentu."
+  }
+};
+
+// deteksi keyword
+function detect(text, data){
+  for(let key in data){
+    for(let word of data[key]){
+      if(text.includes(word)) return key;
+    }
+  }
+  return null;
+}
+
+// generate reply
+function getBotReply(text){
+  const intent = detect(text, intents);
+  const product = detect(text, products);
+
+  if(intent === "salam"){
+    return "Halo 👋 Selamat datang di brand fashion kami. Mau cari baju, celana, tas, atau lainnya?";
+  }
+
+  if(product && intent && answers[product][intent]){
+    return answers[product][intent];
+  }
+
+  if(product){
+    return `Kamu ingin tahu apa tentang ${product}? (harga, beli, promo)`;
+  }
+
+  return "Maaf ya, aku belum paham 🤍 Kamu bisa tanya soal baju, celana, tas, topi, atau kacamata.";
+}
+
+    userInput?.addEventListener('keydown', (e) => {
+      if(e.key === 'Enter') { e.preventDefault(); sendBtn.click(); }
+    });
+
+    // small improvement: close mobile nav when clicking outside
+    document.addEventListener('click', (e) => {
+      if(!navLinks.contains(e.target) && !navToggle.contains(e.target)) {
+        if(navLinks.classList.contains('show')) navLinks.classList.remove('show');
+      }
+    });
+
+    // ensure hero image loads and layout is stable
+    window.addEventListener('load', () => {
+      document.querySelectorAll('img').forEach(i => i.setAttribute('loading','lazy'));
+    });
+  </script>
+</body>
+</html>
