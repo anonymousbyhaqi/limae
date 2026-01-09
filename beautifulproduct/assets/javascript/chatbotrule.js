@@ -89,7 +89,7 @@ const chatbotRules = [
   },
   {
     keyword: ["media", "sosial"],
-    response: "Tiktok :https://tiktok.com, IG:https://instagram.com, X:https://x.com" 
+    response: "Tiktok:https://tiktok.com, IG: https://instagram.com, X: https://x.com" 
   },
   {
     keywords: ["oke", "ok"],
@@ -108,6 +108,7 @@ const chatbotRules = [
     response: "Iya sama-sama, senang bisa membantumu lain kali kalau ada hal yang ingin ditanyakan kesini saja yahh."
   }
 ];
+
 
 
 
