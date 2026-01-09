@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BeautyCare | Market Place</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+     html, body {
+       max-width: 100%;
+       overflow-x: hidden;
+  }
+  </style>
+
+  <style>
+    /* Scroll animation */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+
+<style>
+/* Typing effect */
+.typing-text::after {
+content: '|';
+animation: blink 1s infinite;
+margin-left: 4px;
+}
+
+
+@keyframes blink {
+0%, 50%, 100% { opacity: 1; }
+25%, 75% { opacity: 0; }
+}
+</style>
+
+<style>
+  /* Animasi slide dari kanan */
+  .slide-right {
+    opacity: 0;
+    transform: translateX(60px);
+    transition: all 0.7s ease;
+  }
+
+  .slide-right.show {
+    opacity: 1;
+    transform: translateX(0);
+  }
+</style>
+
+<style>
+  /* kedip lembut */
+  .fade-blink {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+
+  .fade-blink.show {
+    opacity: 1;
+    transform: scale(1);
+  }
+</style>
+
+<style>
+/* NAVBAR LINK ANIMATION */
+.nav-link {
+  position: relative;
+  padding: 6px 6px;
+  display: inline-block;
+  color: black;
+  text-decoration: none;
+  background: inherit;
+  border-radius: 3px;
+}
+
+/* SEMUA GARIS */
+.nav-link::before,
+.nav-link::after,
+.nav-link span::before,
+.nav-link span::after {
+  content: "";
+  position: absolute;
+  background-color: #ec4899; /* pink-500 */
+  border-radius: 10px; /* UJUNG AGAK LANCIP */
+  transition: all 0.35s ease;
+
+}
+
+/* GARIS BAWAH */
+.nav-link::before {
+  height: 2px;
+  width: 0;
+  bottom: 0;
+  left: 0;
+}
+
+
+/* ANIMASI BERURUTAN */
+.nav-link:hover::before {
+  width: 100%;
+}
+
+.nav-link:hover::after {
+  height: 100%;
+  transition-delay: 0.25s;
+}
+
+.nav-link:hover span::before {
+  width: 100%;
+  transition-delay: 0.5s;
+}
+
+.nav-link:hover span::after {
+  height: 100%;
+  transition-delay: 0.75s;
+}
+</style>
+
+</head>
+<body class="font-sans bg-gray-50 text-gray-800">
+
+ <!-- Navbar -->
+<nav class="bg-white shadow-md fixed w-full z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+    <!-- Logo -->
+    <h1 class="text-2xl font-bold text-pink-500">BeautyCare</h1>
+
+    <!-- Menu Desktop -->
+    <ul class="hidden md:flex space-x-6 font-medium">
+      <li><a href="#home" class="nav-link"><span>Home</span></a></li>
+      <li><a href="#about" class="nav-link"><span>Tentang Kami</span></a></li>
+      <li><a href="#products" class="nav-link"><span>Produk</span></a></li>
+      <li><a href="#contact" class="nav-link"><span>Kontak</span></a></li>
+    </ul>
+
+    <!-- Button Hamburger (Mobile) -->
+    <button id="menu-btn" class="md:hidden text-pink-500 focus:outline-none">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none"
+           viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round"
+              stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+
+  </div>
+</nav>
+
+<!-- Menu Mobile -->
+<div id="mobile-menu" class="hidden fixed top-[72px] w-full bg-white shadow-md md:hidden z-40">
+  <ul class="flex flex-col space-y-4 px-6 py-6 font-medium">
+    <li><a href="#home" class="hover:text-pink-500">Home</a></li>
+    <li><a href="#about" class="hover:text-pink-500">Tentang Kami</a></li>
+    <li><a href="#products" class="hover:text-pink-500">Produk</a></li>
+    <li><a href="#contact" class="hover:text-pink-500">Kontak</a></li>
+  </ul>
+</div>
+
+  <!-- Hero Section -->
+  <section id="home" class="pt-28 bg-gradient-to-r from-pink-100 to-pink-50">
+    <div class="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+       <p id="typing-text" class="typing-text text-4xl font-bold mb-4 "></p>
+       <p class="mb-6">BeautyCare menghadirkan produk perawatan kulit berkualitas tinggi yang aman, efektif, dan terjangkau untuk semua jenis kulit.</p>
+        <button class="bg-pink-500 text-white px-6 py-3 rounded-full hover:bg-pink-600">Lihat Produk</button>
+      </div>
+      <div class="flex justify-center">
+          <img src="https://fierceaestheticsmedspa.com/storage/2022/10/What-are-the-most-important-parts-of-a-skincare-routine-scaled.jpeg"
+       class="w-full max-w-xs md:max-w-md rounded-full mx-auto"></img>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <h3 class="text-3xl font-bold mb-6">Tentang BeautyCare</h3>
+      <p class="max-w-3xl mx-auto">BeautyCare adalah brand produk kecantikan yang berkomitmen untuk membantu meningkatkan kepercayaan diri melalui perawatan kulit yang aman, berkualitas, dan terjangkau.</p>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section id="why" class="py-16 bg-pink-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <h3 class="text-3xl font-bold text-center mb-12">Kenapa Memilih BeautyCare?</h3>
+
+      <div class="grid md:grid-cols-4 gap-8 text-center">
+        <div class="bg-white p-6 rounded-2xl shadow transform transition duration-300 hover:scale-105 hover:shadow-xl cursor-pointer   fade-blink">
+          <div class="text-pink-500 text-4xl mb-4"><img src="assets/images/logo.png"></div>
+          <h4 class="font-bold mb-2">Bahan Aman & Berkualitas</h4>
+          <p class="text-sm">Menggunakan bahan pilihan yang aman dan ramah untuk kulit.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl shadow transform transition duration-300 hover:scale-105 hover:shadow-xl cursor-pointer fade-blink">
+          <div class="text-pink-500 text-4xl mb-4"><img src="assets/images/logo.png"></div>
+          <h4 class="font-bold mb-2">Cocok Berbagai Jenis Kulit</h4>
+          <p class="text-sm">Tersedia produk untuk kulit berminyak, kering, sensitif, dan berjerawat.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl shadow transform transition duration-300 hover:scale-105 hover:shadow-xl cursor-pointer fade-blink">
+          <div class="text-pink-500 text-4xl mb-4"><img src="assets/images/logo.png"></div>
+          <h4 class="font-bold mb-2">Harga Terjangkau</h4>
+          <p class="text-sm">Produk berkualitas dengan harga yang ramah di kantong.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl shadow transform transition duration-300 hover:scale-105 hover:shadow-xl cursor-pointer fade-blink">
+          <div class="text-pink-500 text-4xl mb-4"><img src="assets/images/logo.png"></div>
+          <h4 class="font-bold mb-2">Didukung Beauty Assistant</h4>
+          <p class="text-sm">Membantu pelanggan mendapatkan rekomendasi produk yang tepat.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section id="products" class="py-16 bg-gray-100">
+    <div class="max-w-7xl mx-auto px-6">
+      <h3 class="text-3xl font-bold text-center mb-12">Daftar Produk BeautyCare</h3>
+
+      <div class="space-y-10">
+
+        <!-- Product 1 -->
+        <div class="bg-white rounded-2xl shadow p-8 grid md:grid-cols-2 gap-8 fade-up">
+          <img src="https://res.cloudinary.com/dowzkjtns/image/fetch/f_auto,c_limit,w_3840,q_auto/https://assets.thebodyshop.co.id/products/101030906-RENO%20-%20TEA%20TREE%20FACE%20WASH%20250ML-2.jpg" alt="Gambar Produk" class="w-full h-64 object-cover rounded-xl" />
+          <div>
+            <h4 class="text-2xl font-bold mb-2">Facial Wash Tea Tree</h4>
+            <p class="mb-4">Sabun pembersih wajah yang diformulasikan untuk membersihkan kotoran, minyak berlebih, dan sisa makeup tanpa membuat kulit kering.</p>
+            <ul class="list-disc pl-5 mb-3 text-sm">
+              <li>Membersihkan wajah secara menyeluruh</li>
+              <li>Mengontrol minyak berlebih</li>
+              <li>Membantu mencegah jerawat</li>
+              <li>Menyegarkan kulit</li>
+            </ul>
+            <p class="text-sm"><strong>Kandungan:</strong> Tea Tree Oil, Salicylic Acid, Vitamin E</p>
+            <p class="text-sm mt-2"><strong>Jenis Kulit:</strong> Berminyak & Berjerawat</p>
+            <p class="text-sm"><strong>Isi:</strong> 100 ml</p>
+            <p class="text-pink-500 font-semibold mt-3">Rp50.000</p>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="bg-white rounded-2xl shadow p-8 grid md:grid-cols-2 gap-8 fade-up">
+          <img src="https://img.lazcdn.com/g/p/f4ed34c842c7fc3623fc1265412874e2.jpg_720x720q80.jpg" alt="Gambar Produk" class="w-full h-64 object-cover rounded-xl" />
+          <div>
+            <h4 class="text-2xl font-bold mb-2">Gentle Facial Wash</h4>
+            <p class="mb-4">Pembersih wajah dengan formula ringan yang aman digunakan setiap hari tanpa menyebabkan iritasi.</p>
+            <ul class="list-disc pl-5 mb-3 text-sm">
+              <li>Membersihkan wajah dengan lembut</li>
+              <li>Menjaga kelembapan alami kulit</li>
+              <li>Tidak membuat kulit kering</li>
+            </ul>
+            <p class="text-sm"><strong>Kandungan:</strong> Aloe Vera, Chamomile, Vitamin B5</p>
+            <p class="text-sm mt-2"><strong>Jenis Kulit:</strong> Normal & Sensitif</p>
+            <p class="text-sm"><strong>Isi:</strong> 100 ml</p>
+            <p class="text-pink-500 font-semibold mt-3">Rp48.000</p>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="bg-white rounded-2xl shadow p-8 grid md:grid-cols-2 gap-8 fade-up">
+          <img src="https://c.alfagift.id/product/1/1_A8186100002167_20241213091247332_base.jpg" alt="Gambar Produk" class="w-full h-64 object-cover rounded-xl" />
+          <div>
+            <h4 class="text-2xl font-bold mb-2">Serum Vitamin C Brightening</h4>
+            <p class="mb-4">Serum yang membantu mencerahkan kulit wajah dan menyamarkan noda hitam.</p>
+            <ul class="list-disc pl-5 mb-3 text-sm">
+              <li>Mencerahkan kulit</li>
+              <li>Menyamarkan bekas jerawat</li>
+              <li>Menjaga elastisitas kulit</li>
+            </ul>
+            <p class="text-sm"><strong>Kandungan:</strong> Vitamin C, Niacinamide, Hyaluronic Acid</p>
+            <p class="text-sm mt-2"><strong>Jenis Kulit:</strong> Semua Jenis Kulit</p>
+            <p class="text-sm"><strong>Isi:</strong> 20 ml</p>
+            <p class="text-pink-500 font-semibold mt-3">Rp75.000</p>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="bg-white rounded-2xl shadow p-8 grid md:grid-cols-2 gap-8 fade-up">
+          <img src="https://img.lazcdn.com/g/p/c64f16c0fd301c23732103f14b48c658.jpg_720x720q80.jpg" alt="Gambar Produk" class="w-full h-64 object-cover rounded-xl" />
+          <div>
+            <h4 class="text-2xl font-bold mb-2">Acne Spot Treatment</h4>
+            <p class="mb-4">Perawatan khusus untuk membantu mengurangi peradangan pada jerawat.</p>
+            <ul class="list-disc pl-5 mb-3 text-sm">
+              <li>Mengurangi kemerahan</li>
+              <li>Mempercepat penyembuhan</li>
+              <li>Mencegah jerawat kembali</li>
+            </ul>
+            <p class="text-sm"><strong>Kandungan:</strong> Tea Tree Oil, Sulfur, Centella Asiatica</p>
+            <p class="text-sm mt-2"><strong>Jenis Kulit:</strong> Berjerawat</p>
+            <p class="text-sm"><strong>Isi:</strong> 10 ml</p>
+            <p class="text-pink-500 font-semibold mt-3">Rp45.000</p>
+          </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="bg-white rounded-2xl shadow p-8 grid md:grid-cols-2 gap-8 fade-up">
+          <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//89/MTA-1914009/pixy_pixy-radiant-finish-complete-barrier--50g-_full02.jpg" alt="Gambar Produk" class="w-full h-64 object-cover rounded-xl" />
+          <div>
+            <h4 class="text-2xl font-bold mb-2">Pixy Radiant Finish</h4>
+            <p class="mb-4">Krim pagi yang membantu melembapkan dan melindungi kulit dari sinar matahari.</p>
+            <ul class="list-disc pl-5 mb-3 text-sm">
+              <li>Melembapkan kulit</li>
+              <li>Melindungi dari sinar UV</li>
+              <li>Membuat kulit tampak cerah</li>
+            </ul>
+            <p class="text-sm"><strong>Kandungan:</strong> SPF 30, Aloe Vera, Vitamin E</p>
+            <p class="text-sm mt-2"><strong>Jenis Kulit:</strong> Normal – Kering</p>
+            <p class="text-sm"><strong>Isi:</strong> 30 gr</p>
+            <p class="text-pink-500 font-semibold mt-3">Rp70.000</p>
+          </div>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="bg-white rounded-2xl shadow p-8 grid md:grid-cols-2 gap-8 fade-up">
+          <img src="https://m.media-amazon.com/images/S/aplus-media-library-service-media/5feb6bf2-0060-4707-9ea8-3c53cba25cd1.__CR0,0,970,600_PT0_SX970_V1___.jpg" alt="Gambar Produk" class="w-full h-64 object-cover rounded-xl" />
+          <div>
+            <h4 class="text-2xl font-bold mb-2">Night Cream Glow Repair</h4>
+            <p class="mb-4">Krim malam yang membantu regenerasi dan perbaikan tekstur kulit.</p>
+            <ul class="list-disc pl-5 mb-3 text-sm">
+              <li>Menutrisi kulit saat tidur</li>
+              <li>Membantu regenerasi sel</li>
+              <li>Membuat kulit lebih cerah</li>
+            </ul>
+            <p class="text-sm"><strong>Kandungan:</strong> Niacinamide, Retinol, Shea Butter</p>
+            <p class="text-sm mt-2"><strong>Jenis Kulit:</strong> Semua Jenis Kulit</p>
+            <p class="text-sm"><strong>Isi:</strong> 30 gr</p>
+            <p class="text-pink-500 font-semibold mt-3">Rp85.000</p>
+          </div>
+        </div>
+
+        <!-- Product 7 -->
+        <div class="bg-white rounded-2xl shadow p-8 grid md:grid-cols-2 gap-8 fade-up">
+          <img src="https://shopee.co.id/inspirasi-shopee/wp-content/uploads/2022/07/a9d923ab-6014-47a3-8c9f-c846712df42f.webp" alt="Gambar Produk" class="w-full h-64 object-cover rounded-xl" />
+          <div>
+            <h4 class="text-2xl font-bold mb-2">Wardah</h4>
+            <p class="mb-4">Tabir surya dengan perlindungan maksimal dari sinar UVA & UVB.</p>
+            <ul class="list-disc pl-5 mb-3 text-sm">
+              <li>Melindungi kulit dari matahari</li>
+              <li>Mencegah kulit kusam</li>
+              <li>Ringan dan tidak lengket</li>
+            </ul>
+            <p class="text-sm"><strong>Kandungan:</strong> SPF 50+, Zinc Oxide, Vitamin E</p>
+            <p class="text-sm mt-2"><strong>Jenis Kulit:</strong> Semua Jenis Kulit</p>
+            <p class="text-sm"><strong>Isi:</strong> 30 ml</p>
+            <p class="text-pink-500 font-semibold mt-3">Rp65.000</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+<!-- Section Jenis Kulit & Rekomendasi Produk -->
+<section class="bg-pink-50 py-10" id="skin-type">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- Judul Section -->
+    <div class="text-center mb-14">
+      <h2 class="text-3xl md:text-4xl font-bold text-pink-600 mb-4">
+        Jenis Kulit & Rekomendasi Produk
+      </h2>
+      <p class="text-gray-600">
+        Temukan produk yang sesuai dengan kebutuhan kulit Anda
+      </p>
+    </div>
+
+    <!-- Grid Jenis Kulit -->
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <!-- Kulit Berminyak -->
+     <div class="bg-white p-8 rounded-2xl shadow hover:scale-105 transition duration-1000 text-center slide-right">
+        <img src="assets\images\kulitberminyak.png" alt="Jenis Kulit" class="w-32 h-32 mx-auto mb-4 object-cover rounded-xl" />
+        <h3 class="text-xl font-semibold mb-3">Kulit Berminyak</h3>
+        <p class="text-gray-600 mb-4">Wajah mudah mengkilap dan rentan berjerawat.</p>
+        <p class="font-medium text-gray-800">Rekomendasi:</p>
+        <span class="text-pink-600 font-semibold">Facial Wash Tea Tree</span>
+      </div>
+
+      <!-- Kulit Kering -->
+     <div class="bg-white p-8 rounded-2xl shadow hover:scale-105 transition duration-1000 text-center slide-right">
+        <img src="assets\images\kulitkering.jpg" alt="Jenis Kulit" class="w-32 h-32 mx-auto mb-4 object-cover rounded-xl" />
+        <h3 class="text-xl font-semibold mb-3">Kulit Kering</h3>
+        <p class="text-gray-600 mb-4">Kulit terasa kaku dan mudah mengelupas.</p>
+        <p class="font-medium text-gray-800">Rekomendasi:</p>
+        <span class="text-pink-600 font-semibold">Moisturizing Day Cream</span>
+      </div>
+
+      <!-- Kulit Sensitif -->
+     <div class="bg-white p-8 rounded-2xl shadow hover:scale-105 transition duration-1000 text-center slide-right">
+        <img src="assets\images\kulitsensitif.jpg" alt="Jenis Kulit" class="w-32 h-32 mx-auto mb-4 object-cover rounded-xl" />
+        <h3 class="text-xl font-semibold mb-3">Kulit Sensitif</h3>
+        <p class="text-gray-600 mb-4">Mudah iritasi dan kemerahan.</p>
+        <p class="font-medium text-gray-800">Rekomendasi:</p>
+        <span class="text-pink-600 font-semibold">Gentle Facial Wash</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Section Testimoni Pelanggan -->
+<section class="bg-pink-50 py-10" id="testimoni">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- Judul -->
+    <div class="text-center mb-14">
+      <h2 class="text-3xl md:text-4xl font-bold text-pink-600 mb-4">
+        Testimoni Pelanggan
+      </h2>
+      <p class="text-gray-600">
+        Pengalaman nyata dari pengguna BeautyCare
+      </p>
+    </div>
+
+    <!-- WRAPPER (untuk scroll animation) -->
+    <div id="testimonialSection"
+         class="overflow-hidden opacity-0 translate-x-20 transition-all duration-700">
+
+      <!-- TRACK SLIDER -->
+      <div id="testimonialTrack" class="flex gap-8">
+
+        <!-- Testimoni 1 -->
+	<div class="min-w-[320px] bg-white p-8 rounded-2xl shadow hover:scale-105 transition duration-300">
+          <p class="text-gray-600 italic mb-6">
+              “Kulit saya jadi lebih cerah dan tidak berminyak setelah rutin memakai Facial Wash Tea Tree.”
+         </p>
+	<div class="flex items-center gap-4">
+         <img src="assets/images/aisyah.jpg" alt="Foto Aisyah" class="w-12 h-12 rounded-full object-cover border-2 border-pink-300"/>
+  	  <div>
+	      <h4 class="font-semibold text-gray-800">Aisyah</h4>
+	      <span class="text-sm text-gray-500">Pengguna Facial Wash</span>
+	    </div>
+	  </div>
+	</div>
+
+        <!-- Testimoni 2 -->
+        <div class="min-w-[320px] bg-white p-8 rounded-2xl shadow hover:scale-105 transition duration-300">
+          <p class="text-gray-600 italic mb-6">
+            “Tekstur krimnya ringan dan wajah terasa lembap seharian. Sangat cocok untuk kulit kering.”
+          </p>
+             <div class="flex items-center gap-4">
+         <img
+          src="assets/images/rina.jpg" alt="Foto Aisyah" class="w-12 h-12 rounded-full object-cover border-2 border-pink-300"/>
+            <div>
+              <h4 class="font-semibold text-gray-800">Rina</h4>
+              <span class="text-sm text-gray-500">Pengguna Day Cream</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimoni 3 -->
+        <div class="min-w-[320px] bg-white p-8 rounded-2xl shadow hover:scale-105 transition duration-300">
+          <p class="text-gray-600 italic mb-6">
+            “Jerawat lebih cepat kempes dan tidak perih. Produk BeautyCare benar-benar membantu.”
+          </p>
+            <div class="flex items-center gap-4">
+         <img
+          src="assets/images/aisyah.jpg" alt="Foto Aisyah" class="w-12 h-12 rounded-full object-cover border-2 border-pink-300"/>
+            <div>
+              <h4 class="font-semibold text-gray-800">Dewi</h4>
+              <span class="text-sm text-gray-500">Pengguna Acne Treatment</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Section FAQ -->
+<section class="bg-white py-20" id="faq">
+<div class="max-w-4xl mx-auto px-6">
+
+
+<!-- Judul -->
+<div class="text-center mb-14">
+<h2 class="text-3xl md:text-4xl font-bold text-pink-600 mb-4">
+Frequently Asked Questions (FAQ)
+</h2>
+<p class="text-gray-600">
+Pertanyaan yang sering diajukan seputar produk BeautyCare
+</p>
+</div>
+
+
+<!-- FAQ Item -->
+<div class="space-y-6">
+
+
+<!-- FAQ 1 -->
+<div class="border border-pink-200 rounded-xl p-6 cursor-pointer faq-item">
+<div class="flex justify-between items-center">
+<h3 class="font-semibold text-gray-800">Apakah produk aman untuk remaja?</h3>
+<span class="text-pink-500 text-xl">+</span>
+</div>
+<p class="mt-4 text-gray-600 faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+Produk BeautyCare diformulasikan dengan bahan yang aman dan lembut, sehingga dapat digunakan oleh remaja sesuai dengan jenis kulit masing-masing.
+</p>
+</div>
+
+
+<!-- FAQ 2 -->
+<div class="border border-pink-200 rounded-xl p-6 cursor-pointer faq-item">
+<div class="flex justify-between items-center">
+<h3 class="font-semibold text-gray-800">Apakah bisa dipakai setiap hari?</h3>
+<span class="text-pink-500 text-xl">+</span>
+</div>
+<p class="mt-4 text-gray-600 faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+Ya, produk BeautyCare aman digunakan setiap hari karena diformulasikan untuk perawatan rutin tanpa menyebabkan iritasi.
+</p>
+</div>
+
+
+<!-- FAQ 3 -->
+<div class="border border-pink-200 rounded-xl p-6 cursor-pointer faq-item">
+<div class="flex justify-between items-center">
+<h3 class="font-semibold text-gray-800">Apakah produk BeautyCare sudah terdaftar BPOM?</h3>
+<span class="text-pink-500 text-xl">+</span>
+</div>
+<p class="mt-4 text-gray-600 faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+Seluruh produk BeautyCare telah terdaftar dan diawasi oleh BPOM, sehingga aman dan terpercaya untuk digunakan.
+</p>
+</div>
+
+<!-- FAQ 3 -->
+<div class="border border-pink-200 rounded-xl p-6 cursor-pointer faq-item">
+  <div class="flex justify-between items-center">
+    <h3 class="font-semibold text-gray-800">Apakah produk BeautyCare bisa digunakan oleh ibu hamil?</h3>
+    <span class="text-pink-500 text-xl">+</span>
+  </div>
+  <p class="mt-4 text-gray-600 faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+    Sebagian besar produk BeautyCare aman digunakan oleh ibu hamil. Namun, kami tetap menyarankan untuk membaca kandungan produk atau berkonsultasi dengan dokter sebelum penggunaan.
+  </p>
+</div>
+
+<!-- FAQ 4 -->
+<div class="border border-pink-200 rounded-xl p-6 cursor-pointer faq-item">
+  <div class="flex justify-between items-center">
+    <h3 class="font-semibold text-gray-800">Berapa lama hasil pemakaian produk bisa terlihat?</h3>
+    <span class="text-pink-500 text-xl">+</span>
+  </div>
+  <p class="mt-4 text-gray-600 faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+    Hasil pemakaian dapat berbeda pada setiap orang. Umumnya, perubahan mulai terlihat setelah pemakaian rutin selama 2–4 minggu.
+  </p>
+</div>
+
+<!-- FAQ 5 -->
+<div class="border border-pink-200 rounded-xl p-6 cursor-pointer faq-item">
+  <div class="flex justify-between items-center">
+    <h3 class="font-semibold text-gray-800">Berapa lama hasil pemakaian produk bisa terlihat?</h3>
+    <span class="text-pink-500 text-xl">+</span>
+  </div>
+  <p class="mt-4 text-gray-600 faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+    Hasil pemakaian dapat berbeda pada setiap orang. Umumnya, perubahan mulai terlihat setelah pemakaian rutin selama 2–4 minggu.
+  </p>
+</div>
+
+<!-- FAQ 6 -->
+<div class="border border-pink-200 rounded-xl p-6 cursor-pointer faq-item">
+  <div class="flex justify-between items-center">
+    <h3 class="font-semibold text-gray-800">Bagaimana cara mengetahui jenis kulit saya?</h3>
+    <span class="text-pink-500 text-xl">+</span>
+  </div>
+  <p class="mt-4 text-gray-600 faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+    Anda dapat mengetahui jenis kulit dengan memperhatikan kondisi wajah setelah mencuci muka tanpa skincare. Jika ragu, BeautyCare Assistant siap membantu 😊
+  </p>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- Chatbot Button -->
+<button id="chatToggle"
+  type="button"
+  class="fixed bottom-6 right-6 bg-purple-500 hover:bg-pink-600 text-pink w-14 h-14 rounded-full shadow-lg flex items-center justify-center text-2xl z-50">
+  <img src="assets/images/logo.png">
+</button>
+
+<!-- Chatbot Box -->
+<div id="chatBox"
+  class="fixed bottom-24 right-4 w-[90vw] max-w-sm bg-white rounded-2xl shadow-xl
+         transform scale-95 opacity-0 pointer-events-none
+         transition-all duration-300 ease-out
+         flex flex-col z-50" onclick="event.stopPropagation()">
+
+  <!-- Header -->
+  <div class="bg-pink-500 text-white p-4 rounded-t-2xl font-semibold">
+    BeautyCare Assistant
+  </div>
+
+  <!-- Messages -->
+  <div id="chatMessages" class="p-4 h-64 overflow-y-auto space-y-3 text-sm">
+    <div class="bg-pink-100 text-gray-800 p-3 rounded-xl w-fit text-left">
+      Hai 👋 Ada yang bisa aku bantu?
+    </div>
+  </div>
+
+  <!-- Input -->
+  <div class="p-3 border-t flex gap-2">
+    <input id="chatInput" type="text"
+      placeholder="Ketik pesan..."
+      class="flex-1 border rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-pink-400">
+    <button id="sendBtn"
+      class="bg-white-500 text-white px-4 rounded-full hover:bg-white-600">
+      Kirim
+    </button>
+  </div>
+</div>
+
+          
+<!-- Footer -->
+<footer class="bg-pink-600 text-white pt-16">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-10">
+
+    <!-- Brand -->
+    <div>
+      <h3 class="text-2xl font-bold mb-4">BeautyCare</h3>
+      <p class="text-sm leading-relaxed">
+        BeautyCare adalah brand perawatan kulit yang menghadirkan produk aman,
+        berkualitas, dan terjangkau untuk semua jenis kulit.
+      </p>
+    </div>
+
+    <!-- Kontak -->
+    <div>
+      <h4 class="text-lg font-semibold mb-4">Kontak Kami</h4>
+      <ul class="space-y-2 text-sm">
+        <li style="font: white"> Email: beautycare@gmail.com</li>
+        <li> WhatsApp: +62 812-3456-7890</li>
+        <li> Jakarta, Indonesia</li>
+      </ul>
+    </div>
+
+    <!-- Sosial Media -->
+    <div>
+      <h4 class="text-lg font-semibold mb-4">Ikuti Kami</h4>
+      <div class="flex space-x-4 text-xl">
+        <a href="#" class="hover:text-pink-200">Facebook</a> <!-- Facebook -->
+        <a href="#" class="hover:text-pink-200">Instagram</a> <!-- Instagram -->
+        <a href="#" class="hover:text-pink-200">Twitter</a> <!-- Twitter / X -->
+      </div>
+
+      <h4 class="text-lg font-semibold mt-6 mb-3">Marketplace</h4>
+      <div class="flex space-x-4 text-x0">
+        <a href="#" class="hover:text-pink-200"> Shopee</a>
+        <a href="#" class="hover:text-pink-200"> Lazada</a>
+        <a href="#" class="hover:text-pink-200"> Tokopedia</a>
+      </div>
+    </div>
+
+    <!-- Google Maps -->
+    <div>
+      <h4 class="text-lg font-semibold mb-4">Lokasi Kami</h4>
+      <iframe
+        class="rounded-xl w-full h-40"
+        src="https://www.google.com/maps?q=-6.200000,106.816666&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+  </div>
+
+  <!-- Copyright -->
+  <div class="text-center text-sm text-pink-100 mt-12 border-t border-pink-400 py-4">
+    © 2025 BeautyCare. All Rights Reserved.
+  </div>
+</footer>
+
+  <!-- jS -->
+
+  <!-- SCRIPT TOGGLE MENU -->
+  <script>
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+</script>
+
+
+    <!-- delay product scroll -->  
+  <script>
+    const fadeElements = document.querySelectorAll('.fade-up');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    fadeElements.forEach((el, index) => {
+      el.style.transitionDelay = `${index * 0.15}s`;
+      observer.observe(el);
+    });
+  </script>
+
+<!--  Script ini adalah card pada bagian "Kenapa Memilih BeautyCare?" -->
+  <script>
+  const blinkItems = document.querySelectorAll('.fade-blink');
+
+  const blinkObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  blinkItems.forEach((item, index) => {
+    item.style.transitionDelay = `${index * 0.4}s`;
+    blinkObserver.observe(item);
+  });
+</script>
+
+   <!-- script jenis kulit dan rekomendasi product -->
+  <script>
+  const slideRightElements = document.querySelectorAll('.slide-right');
+
+  const slideObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      } else {
+        entry.target.classList.remove('show'); // agar bisa muncul lagi saat scroll balik
+      }
+    });
+  }, { threshold: 0.2 });
+
+  slideRightElements.forEach((el, index) => {
+    el.style.transitionDelay = `${index * 0.2}s`;
+    slideObserver.observe(el);
+  });
+</script>
+
+  <!-- typing text script -->
+<script>
+const text = "Solusi Kecantikan Kulit Anda";
+const typingElement = document.getElementById("typing-text");
+let index = 0;
+
+function typeEffect() {
+  if (index < text.length) {
+    typingElement.innerHTML += text.charAt(index);
+    index++;
+setTimeout(typeEffect, 100);
+}
+  }
+document.addEventListener("DOMContentLoaded", typeEffect);
+</script>
+
+  <!-- Script testimoni-->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const section = document.getElementById("testimonialSection");
+  const track = document.getElementById("testimonialTrack");
+  const cards = track.children;
+
+  let index = 0;
+  let started = false;
+
+  // Scroll animation
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !started) {
+        started = true;
+
+        section.classList.remove("opacity-0", "translate-x-20");
+        section.classList.add("opacity-100", "translate-x-0");
+
+        startSlider();
+      }
+    });
+  }, { threshold: 0.3 });
+
+  observer.observe(section);
+
+  // Slider otomatis
+  function startSlider() {
+    setInterval(() => {
+      index++;
+      if (index >= cards.length) index = 0;
+
+      const cardWidth = cards[0].offsetWidth + 32; // gap-8
+      track.style.transform = `translateX(-${index * cardWidth}px)`;
+      track.style.transition = "transform 0.7s ease-in-out";
+    }, 3000);
+  }
+});
+</script>
+
+
+  <!-- Script FAQ -->
+<script>
+const faqItems = document.querySelectorAll('.faq-item');
+
+faqItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const answer = item.querySelector('.faq-answer');
+      const icon = item.querySelector('span');
+
+  if (answer.style.maxHeight) {
+    answer.style.maxHeight = null;
+    icon.textContent = '+';
+     }
+  else {
+    answer.style.maxHeight = answer.scrollHeight + 'px';
+    icon.textContent = '-';
+     }
+  });
+});
+</script>
+
+<!-- Chatbot Scripts -->
+<script src="assets/javascript/chatbotrule.js"></script>
+<script src="assets/javascript/chatbot_smart_response.js"></script>
+<script src="assets/javascript/logic-chatbot.js"></script>
+<script src="assets/javascript/integration_chat-UI.js"></script>
+
+</body>
+</html>
