@@ -40,7 +40,7 @@ const chatbotRules = [
     response: "Harga Facial Wash Tea Tree adalah Rp50.000 💚"
   },
   {
-    keywords: ["gentle", "gentle facial wash", "gentle facial", "gentle wash", "facial wash gentle"],
+    keywords: ["gentle", , "gentle facial", "gentle wash", "wash gentle"],
     response: "Harga Gentle Facial Wash adalah Rp48.000 🤍"
   },
   {
@@ -104,6 +104,7 @@ const chatbotRules = [
     response: "Iya sama-sama, senang bisa membantumu lain kali kalau ada hal yang ingin ditanyakan kesini saja yahh."
   }
 ];
+
 
 
 
