@@ -1,5 +1,3 @@
-
-
 const chatbotRules = [
   {
     keywords: ["halo", "hai","hei", "hello", "hallo"],
@@ -42,11 +40,11 @@ const chatbotRules = [
     response: "Harga Facial Wash Tea Tree adalah Rp50.000 💚"
   },
   {
-    keywords: ["gentle facial wash", "gentle wash", "facial wash gentle"],
+    keywords: ["gentle", "gentle facial wash", "gentle facial", "gentle wash", "facial wash gentle"],
     response: "Harga Gentle Facial Wash adalah Rp48.000 🤍"
   },
   {
-    keywords: ["serum vitamin c", "vitamin c", "serum brightening"],
+    keywords: ["serum vitamin c", "vitamin c", "serum brightening", "brightening"],
     response: "Harga Serum Vitamin C Brightening adalah Rp75.000 ✨"
   },
   {
@@ -60,6 +58,14 @@ const chatbotRules = [
   {
     keywords: ["night cream", "glow repair", "night cream glow"],
     response: "Harga Night Cream Glow Repair adalah Rp85.000 🌙"
+  },
+  {
+    keywords: ["pixy", "pixy radiant", "radiant finish"],
+    response: "Harga Pixy Radiant Finnish adalah Rp70.000"
+  },
+  { 
+    keywords: ["wardah","serum wardah"],
+    reponsen: "Harga Wardah adalah Rp65.000"
   },
   {
     keywords: ["dimanakah", "beli", "dimanakah beli produk"],
@@ -98,5 +104,6 @@ const chatbotRules = [
     response: "Iya sama-sama, senang bisa membantumu lain kali kalau ada hal yang ingin ditanyakan kesini saja yahh."
   }
 ];
+
 
 
