@@ -1,10 +1,11 @@
+let chatMessages; // ✅ global
 
 document.addEventListener("DOMContentLoaded", () => {
   const chatToggle = document.getElementById("chatToggle");
   const chatBox = document.getElementById("chatBox");
   const sendBtn = document.getElementById("sendBtn");
   const chatInput = document.getElementById("chatInput");
-  const chatMessages = document.getElementById("chatMessages");
+  chatMessages = document.getElementById("chatMessages");
 
   // Toggle chatbot
   chatToggle.addEventListener("click", (e) => {
@@ -14,14 +15,14 @@ document.addEventListener("DOMContentLoaded", () => {
     chatBox.classList.toggle("pointer-events-none");
   });
 
-  // Klik luar → tutup (PAKAI mousedown)
+  // Klik luar → tutup
   document.addEventListener("mousedown", (e) => {
     if (!chatBox.contains(e.target) && !chatToggle.contains(e.target)) {
       chatBox.classList.add("opacity-0", "scale-95", "pointer-events-none");
     }
   });
 
-  // Pastikan chat tetap terbuka saat input aktif
+  // Fokus input → tetap terbuka
   chatInput.addEventListener("focus", () => {
     chatBox.classList.remove("opacity-0", "scale-95", "pointer-events-none");
   });
@@ -31,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const text = chatInput.value.trim();
     if (!text) return;
 
+    // Pesan user
     const userMsg = document.createElement("div");
     userMsg.className =
       "bg-pink-500 text-white p-3 rounded-xl w-fit ml-auto";
@@ -40,24 +42,25 @@ document.addEventListener("DOMContentLoaded", () => {
     chatInput.value = "";
     chatMessages.scrollTop = chatMessages.scrollHeight;
 
-   // Tampilkan bubble mengetik
-showTypingBubble();
+    // Bubble mengetik
+    showTypingBubble();
 
-setTimeout(() => {
-  // hapus bubble mengetik
-  const typingBubble = document.getElementById("typingBubble");
-  if (typingBubble) typingBubble.remove();
+    setTimeout(() => {
+      // hapus bubble
+      const typingBubble = document.getElementById("typingBubble");
+      if (typingBubble) typingBubble.remove();
 
-  // pesan bot asli
-  const botMsg = document.createElement("div");
-  botMsg.className =
-    "bg-pink-100 text-gray-800 p-3 rounded-xl w-fit text-left";
+      // Pesan bot
+      const botMsg = document.createElement("div");
+      botMsg.className =
+        "bg-pink-100 text-gray-800 p-3 rounded-xl w-fit text-left";
 
-  botMsg.textContent = getBotReply(text);
+      botMsg.textContent = getBotReply(text);
 
-  chatMessages.appendChild(botMsg);
-  chatMessages.scrollTop = chatMessages.scrollHeight;
-}, 1200); // waktu delay bisa kamu atur
+      chatMessages.appendChild(botMsg);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }, 1200);
+  }
 
   sendBtn.addEventListener("click", sendMessage);
   chatInput.addEventListener("keydown", (e) => {
@@ -65,7 +68,7 @@ setTimeout(() => {
   });
 });
 
-// typingbublechatbot
+// Bubble typing
 function showTypingBubble() {
   const typing = document.createElement("div");
   typing.id = "typingBubble";
@@ -80,3 +83,5 @@ function showTypingBubble() {
   chatMessages.appendChild(typing);
   chatMessages.scrollTop = chatMessages.scrollHeight;
 }
+
+
