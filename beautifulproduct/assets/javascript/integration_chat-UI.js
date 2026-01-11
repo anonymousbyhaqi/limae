@@ -40,18 +40,43 @@ document.addEventListener("DOMContentLoaded", () => {
     chatInput.value = "";
     chatMessages.scrollTop = chatMessages.scrollHeight;
 
-    setTimeout(() => {
-      const botMsg = document.createElement("div");
-      botMsg.className =
-        "bg-pink-100 text-gray-800 p-3 rounded-xl w-fit text-left";
-      botMsg.textContent = getBotReply(text);
-      chatMessages.appendChild(botMsg);
-      chatMessages.scrollTop = chatMessages.scrollHeight;
-    }, 600);
-  }
+   // Tampilkan bubble mengetik
+showTypingBubble();
+
+setTimeout(() => {
+  // hapus bubble mengetik
+  const typingBubble = document.getElementById("typingBubble");
+  if (typingBubble) typingBubble.remove();
+
+  // pesan bot asli
+  const botMsg = document.createElement("div");
+  botMsg.className =
+    "bg-pink-100 text-gray-800 p-3 rounded-xl w-fit text-left";
+
+  botMsg.textContent = getBotReply(text);
+
+  chatMessages.appendChild(botMsg);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}, 1200); // waktu delay bisa kamu atur
 
   sendBtn.addEventListener("click", sendMessage);
   chatInput.addEventListener("keydown", (e) => {
     if (e.key === "Enter") sendMessage();
   });
 });
+
+// typingbublechatbot
+function showTypingBubble() {
+  const typing = document.createElement("div");
+  typing.id = "typingBubble";
+  typing.className =
+    "bg-pink-100 text-gray-600 p-3 rounded-xl w-fit text-sm italic";
+
+  typing.innerHTML = `
+    BeautyCare sedang mengetik
+    <span class="dot">.</span><span class="dot">.</span><span class="dot">.</span>
+  `;
+
+  chatMessages.appendChild(typing);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
