@@ -55,4 +55,19 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+function showTypingBubble() {
+  const typing = document.createElement("div");
+  typing.id = "typingBubble";
+  typing.className =
+    "bg-pink-100 text-gray-600 p-3 rounded-xl w-fit text-sm italic";
+
+  typing.innerHTML = `
+    BeautyCare sedang mengetik
+    <span class="dot">.</span><span class="dot">.</span><span class="dot">.</span>
+  `;
+
+  chatMessages.appendChild(typing);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
 
