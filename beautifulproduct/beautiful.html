@@ -78,7 +78,7 @@
 /* Typing effect */
 .typing-text::after {
 content: '|';
-animation: blink 1s ease-in ;
+animation: blink 1s infinite ;
 margin-left: 4px;
 }
 
@@ -815,18 +815,31 @@ Seluruh produk BeautyCare telah terdaftar dan diawasi oleh BPOM, sehingga aman d
 
   <!-- typing text script -->
 <script>
-const text = "Solusi Kecantikan Kulit Anda";
-const typingElement = document.getElementById("typing-text");
-let index = 0;
+const text = "Website E-Commerce Elegan & Modern";
+const typingEl = document.querySelector(".typing-text");
 
-function typeEffect() {
-  if (index < text.length) {
-    typingElement.innerHTML += text.charAt(index);
-    index++;
-setTimeout(typeEffect, 100);
-}
+let index = 0;
+let isDeleting = false;
+
+function typeLoop() {
+  if (!isDeleting) {
+    typingEl.textContent = text.slice(0, index++);
+    if (index > text.length) {
+      isDeleting = true;
+      setTimeout(typeLoop, 1200);
+      return;
+    }
+  } else {
+    typingEl.textContent = text.slice(0, index--);
+    if (index === 0) {
+      isDeleting = false;
+    }
   }
-document.addEventListener("DOMContentLoaded", typeEffect);
+
+  setTimeout(typeLoop, isDeleting ? 60 : 120);
+}
+
+typeLoop();
 </script>
 
   <!-- Script testimoni-->
@@ -899,6 +912,7 @@ faqItems.forEach(item => {
 
 </body>
 </html>
+
 
 
 
