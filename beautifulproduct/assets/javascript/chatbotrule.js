@@ -101,10 +101,9 @@ const chatbotRules = [
   {
     keywords: ["media", "sosial", "medsos", "instagram", "tiktok"],
     response: `
-    📱 Media Sosial Kami:<br>
-    TikTok: <a href="https://tiktok.com" target="_blank">tiktok.com</a><br>
-    Instagram: <a href="https://instagram.com" target="_blank">instagram.com</a><br>
-    X: <a href="https://x.com" target="_blank">x.com</a>
+    TikTok: "https://tiktok.com",
+    Instagram: "https://instagram.com",
+    X: "https://x.com"
   `
   },
   {
@@ -124,6 +123,7 @@ const chatbotRules = [
     response: "Iya sama-sama, senang bisa membantumu lain kali kalau ada hal yang ingin ditanyakan kesini saja yahh."
   }
 ];
+
 
 
 
