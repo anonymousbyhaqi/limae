@@ -60,19 +60,21 @@
   20% { opacity: 1; }
   100% { opacity: 0.2; }
 }
-
 .dot {
   animation: blink 1.4s infinite both;
+  font-weight: bold;
 }
 
-.dot:nth-of-type(2) {
+.dot-1 {
+  animation-delay: 0s;
+}
+
+.dot-2 {
   animation-delay: 0.2s;
-  color: pink;
 }
 
-.dot:nth-of-type(3) {
+.dot-3 {
   animation-delay: 0.4s;
-  color: pink;
 }
 </style>
 	
@@ -923,6 +925,7 @@ faqItems.forEach(item => {
 
 </body>
 </html>
+
 
 
 
