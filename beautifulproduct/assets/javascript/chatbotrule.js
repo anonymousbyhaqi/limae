@@ -1,3 +1,14 @@
+//jangan menggunakan keyword yang terlalu spesifik karena chat-bot akan otomatis mengenali keyword yang mengandung 2 frasa perkataan misal:
+
+//[halo selamat pagi para pelanggan];
+
+//diganti menjadi dengan ["halo", "hai","hei", "hello", "hallo"];
+
+//jikalau tidak chat-bot akan mengalami permasalahan seperti tidak bisa menjawab, pesan tidak diketahui dan lain sebagainya.
+
+//chat-bot ini akan memfilter setiap perkataan yang tersimpan di dataset, bila setiap kalimat yang diketik pengguna mengandung
+//perkataan yang sama di dalam dataset chat-bot akan otomatis menjawab dan menyesuaikannya dengan benar.
+
 const chatbotRules = [
   {
     keywords: ["halo", "hai","hei", "hello", "hallo"],
@@ -113,6 +124,7 @@ const chatbotRules = [
     response: "Iya sama-sama, senang bisa membantumu lain kali kalau ada hal yang ingin ditanyakan kesini saja yahh."
   }
 ];
+
 
 
 
