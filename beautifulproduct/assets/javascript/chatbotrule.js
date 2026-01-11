@@ -88,8 +88,13 @@ const chatbotRules = [
     response: "https://lazada.com"
   },
   {
-    keywords: ["media", "sosial"],
-    response: "Tiktok:https://tiktok.com, IG: https://instagram.com, X: https://x.com" 
+    keywords: ["media", "sosial", "medsos", "instagram", "tiktok"],
+    response: `
+    📱 Media Sosial Kami:<br>
+    TikTok: <a href="https://tiktok.com" target="_blank">tiktok.com</a><br>
+    Instagram: <a href="https://instagram.com" target="_blank">instagram.com</a><br>
+    X: <a href="https://x.com" target="_blank">x.com</a>
+  `
   },
   {
     keywords: ["oke", "ok"],
@@ -108,6 +113,7 @@ const chatbotRules = [
     response: "Iya sama-sama, senang bisa membantumu lain kali kalau ada hal yang ingin ditanyakan kesini saja yahh."
   }
 ];
+
 
 
 
