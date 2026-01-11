@@ -40,6 +40,9 @@ document.addEventListener("DOMContentLoaded", () => {
     chatMessages.scrollTop = chatMessages.scrollHeight;
 
     setTimeout(() => {
+    const typingBubble = document.getElementById("typingBubble");
+    if (typingBubble) typingBubble.remove();
+      
       const botMsg = document.createElement("div");
       botMsg.className =
         "bg-pink-100 text-gray-800 p-3 rounded-xl w-fit text-left";
@@ -69,5 +72,6 @@ function showTypingBubble() {
   chatMessages.appendChild(typing);
   chatMessages.scrollTop = chatMessages.scrollHeight;
 }
+
 
 
