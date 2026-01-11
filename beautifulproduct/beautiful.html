@@ -11,7 +11,49 @@
        overflow-x: hidden;
   }
   </style>
+	
+<style>
+/* PRELOADER */
+ #preloader {
+  position: fixed;
+  inset: 0;
+  background: #f472b6; /* pink */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
 
+ #preloader.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+ .loader {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #fff;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+ #preloader p {
+  margin-top: 16px;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+ @keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+</style>
+	
   <style>
     /* Scroll animation */
     .fade-up {
@@ -124,9 +166,16 @@ margin-left: 4px;
 </style>
 
 </head>
+
 <body class="font-sans bg-gray-50 text-gray-800">
 
- <!-- Navbar -->
+<!-- Preloader -->
+<div id="preloader">
+  <div class="loader"></div>
+  <p>Loading BeautyCare...</p>
+</div>
+ 
+	<!-- Navbar -->
 <nav class="bg-white shadow-md fixed w-full z-50">
   <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
@@ -681,6 +730,16 @@ Seluruh produk BeautyCare telah terdaftar dan diawasi oleh BPOM, sehingga aman d
 
   <!-- jS -->
 
+  <!-- PRELOADER -->
+  <script>
+  window.addEventListener("load", () => {
+  const preloader = document.getElementById("preloader");
+  setTimeout(() => {
+    preloader.classList.add("hide");
+  }, 800); // durasi loading
+  });
+  </script>
+
   <!-- SCRIPT TOGGLE MENU -->
   <script>
   const menuBtn = document.getElementById('menu-btn');
@@ -834,3 +893,4 @@ faqItems.forEach(item => {
 
 </body>
 </html>
+
